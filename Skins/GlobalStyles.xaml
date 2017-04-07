@@ -488,7 +488,13 @@
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
-
+    
+    <Style x:Key="GridChooseImage"
+           TargetType="{x:Type Grid}" >
+        <Setter Property="Margin"
+                Value="5,5,5,5">
+        </Setter>
+    </Style>
     <Style x:Key="KinectCheckBoxStyle"
            TargetType="{x:Type CheckBox}">
         <Setter Property="Template"
@@ -517,5 +523,6 @@
                         Value="{StaticResource PrimaryBrush}" />
             </Trigger>
         </Style.Triggers>
+        
     </Style>
 </ResourceDictionary>

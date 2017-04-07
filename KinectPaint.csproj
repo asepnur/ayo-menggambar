@@ -198,6 +198,12 @@
     <Resource Include="Resources\brush_down.png" />
     <Resource Include="Resources\eraser.png" />
     <Resource Include="Resources\eraser_down.png" />
+    <Resource Include="Resources\drawing_1.png" />
+    <Resource Include="Resources\drawing_2.png" />
+    <Resource Include="Resources\drawing_3.png" />
+    <Resource Include="Resources\drawing_4.png" />
+    <Resource Include="Resources\drawing_5.png" />
+    <Resource Include="Resources\drawing_6.png" />
     <Content Include="Resources\main-bg.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
