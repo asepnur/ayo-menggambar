@@ -84,6 +84,7 @@
     </ApplicationDefinition>
     <Compile Include="ArchivedImage.cs" />
     <Compile Include="FocusingStackPanel.cs" />
+    <Compile Include="ImageChooseButton.cs" />
     <Compile Include="KinectPaintCheckBox.cs" />
     <Compile Include="CursorEventArgs.cs" />
     <Compile Include="KinectCursor.xaml.cs">

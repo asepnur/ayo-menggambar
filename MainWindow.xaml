@@ -45,72 +45,7 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <Grid x:Name="Frame"
-                          Grid.Column="1" Margin="50,50,50,50">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="1*" />
-                            <ColumnDefinition Width="1*" />
-                            <ColumnDefinition Width="1*" />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="1*" />
-                            <RowDefinition Height="1*" />
-                        </Grid.RowDefinitions>
-                        <Grid x:Name="CHOOSE_Image"
-                            Grid.Column="0" 
-                            SizeChanged="PART_PaintCanvas_SizeChanged"
-                             Style="{StaticResource GridChooseImage}">
-                             <Border BorderThickness="2" BorderBrush="Black" Padding="10" >
-                                <Image  Source="Resources/Drawing_1.png" Grid.Column="1"  Stretch="Uniform" />   
-                            </Border>
-                            
-                        </Grid>
-                        <Grid x:Name="CHOOSE_Image2"
-                            Grid.Column="1" 
-                            SizeChanged="PART_PaintCanvas_SizeChanged"
-                              Style="{StaticResource GridChooseImage}">
-                            <Border BorderThickness="2" BorderBrush="Black" Padding="10" >
-                                <Image  Source="Resources/Drawing_2.png" Grid.Column="1"  Stretch="Uniform" />
-                            </Border>
-                        </Grid>
-
-                        <Grid x:Name="CHOOSE_Image3"
-                            Grid.Column="2" 
-                            SizeChanged="PART_PaintCanvas_SizeChanged" 
-                              Style="{StaticResource GridChooseImage}">
-                            <Border BorderThickness="2" BorderBrush="Black" Padding="10" >
-                                <Image  Source="Resources/Drawing_3.png" Grid.Column="1"  Stretch="Uniform" />
-                            </Border>
-                        </Grid>
-                        <Grid x:Name="CHOOSE_Image4"
-                            Grid.Row="1" 
-                            Grid.Column="0"
-                            SizeChanged="PART_PaintCanvas_SizeChanged"
-                              Style="{StaticResource GridChooseImage}">
-                            <Border BorderThickness="2" BorderBrush="Black" Padding="10" >
-                                <Image  Source="Resources/Drawing_4.png" Grid.Column="1"  Stretch="Uniform" />
-                            </Border>
-                        </Grid>
-                        <Grid x:Name="CHOOSE_Image5"
-                            Grid.Row="1" 
-                            Grid.Column="1"
-                            SizeChanged="PART_PaintCanvas_SizeChanged"
-                              Style="{StaticResource GridChooseImage}">
-                            <Border BorderThickness="2" BorderBrush="Black" Padding="10" >
-                                <Image  Source="Resources/Drawing_5.png" Grid.Column="1"  Stretch="Uniform" />
-                            </Border>
-                        </Grid>
-                        <Grid x:Name="CHOOSE_Image6"
-                            Grid.Row="1"
-                            Grid.Column="2" 
-                            SizeChanged="PART_PaintCanvas_SizeChanged"
-                              Style="{StaticResource GridChooseImage}">
-                            <Border BorderThickness="2" BorderBrush="Black" Padding="10" >
-                                <Image  Source="Resources/Drawing_6.png" Grid.Column="1"  Stretch="Uniform" />
-                            </Border>
-                        </Grid>
-
-                    </Grid>
+                    
                 </Grid>
             </Canvas>
         </Grid>

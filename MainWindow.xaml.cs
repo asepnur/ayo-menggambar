@@ -64,9 +64,6 @@ namespace Microsoft.Kinect.Samples.KinectPaint
             Debug.Assert(Instance == null);
 
             Instance = this;
-
-            Tutorial.Visibility = Visibility.Collapsed;
-            _isTutorialActive = false;
         }
 
         #region Methods
