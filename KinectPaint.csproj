@@ -181,7 +181,7 @@
     <Resource Include="Resources\pen-selected.png" />
     <Resource Include="Resources\pen-unselected.png" />
     <Resource Include="Resources\save.png" />
-    <Content Include="Resources\wood.jpg">
+    <Content Include="Resources\main-bg.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

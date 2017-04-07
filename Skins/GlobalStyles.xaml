@@ -15,7 +15,7 @@
     <SolidColorBrush x:Key="CanvasBackgroundBrush"
                      Color="#FFE9E9E9" />
 
-    <ImageBrush ImageSource="/KinectPaint;component/Resources/wood.jpg"
+    <ImageBrush ImageSource="/KinectPaint;component/Resources/main-bg.jpg"
                 x:Key="MainBackgroundBrush" />
 
     <GridLength x:Key="ColumnWidth1">280</GridLength>
