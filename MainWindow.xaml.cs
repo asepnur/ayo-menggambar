@@ -186,23 +186,23 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         private BrushSelection[] _availableBrushes = new BrushSelection[]
         {
             new BrushSelection(
-                new Uri("/KinectPaint;component/Resources/thickness-01.png", UriKind.RelativeOrAbsolute), 
-                new Uri("/KinectPaint;component/Resources/thickness-05.png", UriKind.RelativeOrAbsolute), 
+                new Uri("/KinectPaint;component/Resources/pencil.png", UriKind.RelativeOrAbsolute), 
+                new Uri("/KinectPaint;component/Resources/pencil_down.png", UriKind.RelativeOrAbsolute), 
                 KinectPaintbrush.Marker, 
                 "Pensil"),
             new BrushSelection(
-                new Uri("/KinectPaint;component/Resources/thickness-02.png", UriKind.RelativeOrAbsolute), 
-                new Uri("/KinectPaint;component/Resources/thickness-06.png", UriKind.RelativeOrAbsolute), 
+                new Uri("/KinectPaint;component/Resources/airbrush.png", UriKind.RelativeOrAbsolute), 
+                new Uri("/KinectPaint;component/Resources/airbrush_down.png", UriKind.RelativeOrAbsolute), 
                 KinectPaintbrush.Airbrush, 
                 "Semprot"),
             new BrushSelection(
-                new Uri("/KinectPaint;component/Resources/thickness-03.png", UriKind.RelativeOrAbsolute), 
-                new Uri("/KinectPaint;component/Resources/thickness-07.png", UriKind.RelativeOrAbsolute), 
+                new Uri("/KinectPaint;component/Resources/brush.png", UriKind.RelativeOrAbsolute), 
+                new Uri("/KinectPaint;component/Resources/brush_down.png", UriKind.RelativeOrAbsolute), 
                 KinectPaintbrush.Brush, 
                 "Kuas"),
             new BrushSelection(
-                new Uri("/KinectPaint;component/Resources/thickness-04.png", UriKind.RelativeOrAbsolute), 
-                new Uri("/KinectPaint;component/Resources/thickness-08.png", UriKind.RelativeOrAbsolute), 
+                new Uri("/KinectPaint;component/Resources/eraser.png", UriKind.RelativeOrAbsolute), 
+                new Uri("/KinectPaint;component/Resources/eraser_down.png", UriKind.RelativeOrAbsolute), 
                 KinectPaintbrush.Eraser, 
                 "Penghapus")
         };

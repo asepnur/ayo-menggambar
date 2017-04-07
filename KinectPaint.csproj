@@ -166,6 +166,8 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\pencil.png" />
+    <Resource Include="Resources\pencil_down.png" />
     <Resource Include="Resources\thickness-01.png" />
     <Resource Include="Resources\thickness-02.png" />
     <Resource Include="Resources\thickness-03.png" />
@@ -190,6 +192,12 @@
     <Resource Include="Resources\pen-unselected.png" />
     <Resource Include="Resources\save.png" />
     <Resource Include="Resources\board.png" />
+    <Resource Include="Resources\airbrush.png" />
+    <Resource Include="Resources\airbrush_down.png" />
+    <Resource Include="Resources\brush.png" />
+    <Resource Include="Resources\brush_down.png" />
+    <Resource Include="Resources\eraser.png" />
+    <Resource Include="Resources\eraser_down.png" />
     <Content Include="Resources\main-bg.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

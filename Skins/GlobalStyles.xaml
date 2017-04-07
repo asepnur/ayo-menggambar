@@ -467,7 +467,7 @@
                        Foreground="{TemplateBinding Foreground}"
                        Visibility="Collapsed" />
             <TextBlock x:Name="UnecheckedContent"
-                       HorizontalAlignment="Center"
+                        HorizontalAlignment="Center"
                        TextWrapping="Wrap"
                        Text="{TemplateBinding Tag}"
                        VerticalAlignment="Center"

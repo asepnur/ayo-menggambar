@@ -46,25 +46,33 @@
         
         <StackPanel x:Name="PART_selectionUI"
                     Margin="0,16,0,0">
-            <Grid Background="White" Margin="13,0,0,10">
+            <Border Background="White" Margin="13,0,0,10" CornerRadius="5">
                 <TextBlock Text="Alat"
-                       Style="{StaticResource LabelStyle}" />
-            </Grid>
+                       Style="{StaticResource LabelStyle}" Margin="0,0,30,0" Padding="15, 10, 10, 10" />
+            </Border>
 
-            <local:KinectPaintListBox SelectedItem="{Binding SelectedBrush, Mode=TwoWay}"
-                                      ItemsSource="{Binding AvailableBrushes}"
-                                      ItemContainerStyle="{StaticResource BrushItemStyle}"
-                                      Style="{StaticResource ToolListBoxStyle}" />
-            <Grid Background="White" Margin="13,10,0,10">
+            <Border Background="White" Margin="13,0,0,10" CornerRadius="5">
+                <Grid>
+                    <local:KinectPaintListBox SelectedItem="{Binding SelectedBrush, Mode=TwoWay}"
+                                ItemsSource="{Binding AvailableBrushes}"
+                                ItemContainerStyle="{StaticResource BrushItemStyle}"
+                                Style="{StaticResource ToolListBoxStyle}"/>
+                </Grid>
+            </Border>
+            
+            <Border Background="White" Margin="13,10,0,10" CornerRadius="5">
                 <TextBlock Text="Ketebalan"
                        Style="{StaticResource LabelStyle}" />
-            </Grid>
+            </Border>
 
-            <local:KinectPaintListBox ItemsSource="{Binding AvailableSizes}"
+            <Border Background="White" Margin="13,0,0,10" CornerRadius="5">
+                <Grid>
+                    <local:KinectPaintListBox ItemsSource="{Binding AvailableSizes}"
                                       SelectedItem="{Binding SelectedSize, Mode=TwoWay}"
                                       Style="{StaticResource ToolListBoxStyle}"
                                       ItemContainerStyle="{StaticResource BrushSizeItemStyle}" />
-
+                </Grid>
+            </Border>
         </StackPanel>
 
         <Grid Grid.Column="2"
