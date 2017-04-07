@@ -166,6 +166,14 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\thickness-01.png" />
+    <Resource Include="Resources\thickness-02.png" />
+    <Resource Include="Resources\thickness-03.png" />
+    <Resource Include="Resources\thickness-04.png" />
+    <Resource Include="Resources\thickness-05.png" />
+    <Resource Include="Resources\thickness-06.png" />
+    <Resource Include="Resources\thickness-07.png" />
+    <Resource Include="Resources\thickness-08.png" />
     <Resource Include="Readme.txt" />
     <Resource Include="Resources\airbrush-selected.png" />
     <Resource Include="Resources\airbrush-unselected.png" />
@@ -181,6 +189,7 @@
     <Resource Include="Resources\pen-selected.png" />
     <Resource Include="Resources\pen-unselected.png" />
     <Resource Include="Resources\save.png" />
+    <Resource Include="Resources\board.png" />
     <Content Include="Resources\main-bg.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

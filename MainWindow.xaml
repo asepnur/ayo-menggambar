@@ -1,4 +1,4 @@
-﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿ <Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:Microsoft.Kinect.Samples.KinectPaint"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -32,40 +32,39 @@
                 Grid.Column="1" 
                 SizeChanged="PART_PaintCanvas_SizeChanged"
                 Style="{StaticResource MainCanvasStyle}">
-
             <Image x:Name="PART_KinectVideo" />
-
             <Image x:Name="PART_LoadedImageDisplay"
                     Stretch="None"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Margin="-34,0,-34,0" />
+            <Canvas x:Name="DRAW_CANVAS" 
+                Margin="-5,-5,-5,-5" HorizontalAlignment="Stretch">
+                <Image Source="Resources/board.png" Width="{Binding Path=ActualWidth, ElementName=DRAW_CANVAS}" Height="{Binding Path=ActualHeight, ElementName=DRAW_CANVAS}" Stretch="Fill"/>
+            </Canvas>
         </Grid>
-
+        
         <StackPanel x:Name="PART_selectionUI"
                     Margin="0,16,0,0">
-            <TextBlock Text="Tools"
+            <Grid Background="White" Margin="13,0,0,10">
+                <TextBlock Text="Alat"
                        Style="{StaticResource LabelStyle}" />
+            </Grid>
 
             <local:KinectPaintListBox SelectedItem="{Binding SelectedBrush, Mode=TwoWay}"
                                       ItemsSource="{Binding AvailableBrushes}"
                                       ItemContainerStyle="{StaticResource BrushItemStyle}"
                                       Style="{StaticResource ToolListBoxStyle}" />
-
-            <TextBlock Text="Pen Thickness"
+            <Grid Background="White" Margin="13,10,0,10">
+                <TextBlock Text="Ketebalan"
                        Style="{StaticResource LabelStyle}" />
+            </Grid>
 
             <local:KinectPaintListBox ItemsSource="{Binding AvailableSizes}"
                                       SelectedItem="{Binding SelectedSize, Mode=TwoWay}"
                                       Style="{StaticResource ToolListBoxStyle}"
                                       ItemContainerStyle="{StaticResource BrushSizeItemStyle}" />
-            <TextBlock Text="Camera"
-                       Style="{StaticResource LabelStyle}" />
 
-            <local:KinectPaintCheckBox Content="on"
-                                       IsChecked="{Binding ShowCamera, Mode=TwoWay}"
-                                       Style="{StaticResource KinectCheckBoxStyle}"
-                                       Tag="off" />
         </StackPanel>
 
         <Grid Grid.Column="2"
@@ -86,13 +85,7 @@
                            Width="30"
                            Height="30" />
                 </local:KinectPaintButton>
-
-                <local:KinectPaintButton Style="{StaticResource TutorialButtonStyle}"
-                                         Grid.Column="2"
-                                         Click="OnCloseTutorial">
-                    <TextBlock Text="Let's draw"
-                               Style="{StaticResource TutorialButtonTextStyle}" />
-                </local:KinectPaintButton>
+                
             </WrapPanel>
 
             <StackPanel Grid.Row="2">

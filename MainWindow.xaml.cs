@@ -64,6 +64,9 @@ namespace Microsoft.Kinect.Samples.KinectPaint
             Debug.Assert(Instance == null);
 
             Instance = this;
+
+            Tutorial.Visibility = Visibility.Collapsed;
+            _isTutorialActive = false;
         }
 
         #region Methods
@@ -156,14 +159,18 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         public IEnumerable<Color> AvailableColors { get { return _availableColors; } }
         private Color[] _availableColors = new Color[]
         {
-            Colors.DarkGreen,
             Colors.Red,
+            Colors.DarkGreen,
             Colors.Blue,
             Colors.Purple,
             Colors.Orange,
             Colors.Yellow,
             Colors.Black,
             Colors.White,
+            Colors.Pink,
+            Colors.Brown,
+            Colors.Tomato,
+            Colors.MistyRose
         };
 
         public IEnumerable<double> AvailableSizes { get { return _availableSizes; } }
@@ -172,33 +179,32 @@ namespace Microsoft.Kinect.Samples.KinectPaint
             3.0,
             6.0,
             9.0,
-            12.0,
-            15.0
+            12.0
         };
 
         public IEnumerable<BrushSelection> AvailableBrushes { get { return _availableBrushes; } }
         private BrushSelection[] _availableBrushes = new BrushSelection[]
         {
             new BrushSelection(
-                new Uri("/KinectPaint;component/Resources/pen-unselected.png", UriKind.RelativeOrAbsolute), 
-                new Uri("/KinectPaint;component/Resources/pen-selected.png", UriKind.RelativeOrAbsolute), 
+                new Uri("/KinectPaint;component/Resources/thickness-01.png", UriKind.RelativeOrAbsolute), 
+                new Uri("/KinectPaint;component/Resources/thickness-05.png", UriKind.RelativeOrAbsolute), 
                 KinectPaintbrush.Marker, 
-                "pen"),
+                "Pensil"),
             new BrushSelection(
-                new Uri("/KinectPaint;component/Resources/airbrush-unselected.png", UriKind.RelativeOrAbsolute), 
-                new Uri("/KinectPaint;component/Resources/airbrush-selected.png", UriKind.RelativeOrAbsolute), 
+                new Uri("/KinectPaint;component/Resources/thickness-02.png", UriKind.RelativeOrAbsolute), 
+                new Uri("/KinectPaint;component/Resources/thickness-06.png", UriKind.RelativeOrAbsolute), 
                 KinectPaintbrush.Airbrush, 
-                "airbrush"),
+                "Semprot"),
             new BrushSelection(
-                new Uri("/KinectPaint;component/Resources/brush-unselected.png", UriKind.RelativeOrAbsolute), 
-                new Uri("/KinectPaint;component/Resources/brush-selected.png", UriKind.RelativeOrAbsolute), 
+                new Uri("/KinectPaint;component/Resources/thickness-03.png", UriKind.RelativeOrAbsolute), 
+                new Uri("/KinectPaint;component/Resources/thickness-07.png", UriKind.RelativeOrAbsolute), 
                 KinectPaintbrush.Brush, 
-                "brush"),
+                "Kuas"),
             new BrushSelection(
-                new Uri("/KinectPaint;component/Resources/eraser-unselected.png", UriKind.RelativeOrAbsolute), 
-                new Uri("/KinectPaint;component/Resources/eraser-selected.png", UriKind.RelativeOrAbsolute), 
+                new Uri("/KinectPaint;component/Resources/thickness-04.png", UriKind.RelativeOrAbsolute), 
+                new Uri("/KinectPaint;component/Resources/thickness-08.png", UriKind.RelativeOrAbsolute), 
                 KinectPaintbrush.Eraser, 
-                "eraser")
+                "Penghapus")
         };
 
         #endregion
