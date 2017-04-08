@@ -642,6 +642,11 @@ namespace Microsoft.Kinect.Samples.KinectPaint
             CreatePaintableImage();
         }
 
+        public void SetTutorialActive(bool status)
+        {
+            _isTutorialActive = status;
+        }
+
         #endregion
     }
 }

@@ -32,7 +32,10 @@
                 Grid.Column="1" 
                 SizeChanged="PART_PaintCanvas_SizeChanged"
                 Style="{StaticResource MainCanvasStyle}">
-            <Image x:Name="PART_KinectVideo" />
+            <Image x:Name="PART_KinectVideo" /> <!--not used anymore-->
+            <Image x:Name="PART_LoadedBackground"
+                    Margin="80"
+                    Stretch="Fill" />
             <Image x:Name="PART_LoadedImageDisplay"
                     Stretch="None"
                     HorizontalAlignment="Center"

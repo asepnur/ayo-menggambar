@@ -49,7 +49,7 @@
                             Style="{StaticResource GridChooseImage}">
                             <Border BorderThickness="2" BorderBrush="Black" Padding="10" >
                                 <local:ImageChooseButton Click="Choose"
-                                Tag="1">
+                                Tag="Resources/Drawing_1.png">
                                     <Image  Source="Resources/Drawing_1.png" Grid.Column="1" Stretch="Uniform" />
                                 </local:ImageChooseButton>
                             </Border>
@@ -59,7 +59,7 @@
                               Style="{StaticResource GridChooseImage}">
                             <Border BorderThickness="2" BorderBrush="Black" Padding="10" >
                                 <local:ImageChooseButton Click="Choose"
-                                Tag="1">
+                                Tag="Resources/Drawing_2.png">
                                     <Image  Source="Resources/Drawing_2.png" Grid.Column="1" Stretch="Uniform" />
                                 </local:ImageChooseButton>
                             </Border>
@@ -70,7 +70,7 @@
                               Style="{StaticResource GridChooseImage}">
                             <Border BorderThickness="2" BorderBrush="Black" Padding="10" >
                                 <local:ImageChooseButton Click="Choose"
-                                Tag="1">
+                                Tag="Resources/Drawing_3.png">
                                     <Image  Source="Resources/Drawing_3.png" Grid.Column="1" Stretch="Uniform" />
                                 </local:ImageChooseButton>
                             </Border>
@@ -81,7 +81,7 @@
                               Style="{StaticResource GridChooseImage}">
                             <Border BorderThickness="2" BorderBrush="Black" Padding="10" >
                                 <local:ImageChooseButton Click="Choose"
-                                Tag="1">
+                                Tag="Resources/Drawing_4.png">
                                     <Image  Source="Resources/Drawing_4.png" Grid.Column="1" Stretch="Uniform" />
                                 </local:ImageChooseButton>
                             </Border>
@@ -92,7 +92,7 @@
                               Style="{StaticResource GridChooseImage}">
                             <Border BorderThickness="2" BorderBrush="Black" Padding="10" >
                                 <local:ImageChooseButton Click="Choose"
-                                Tag="1">
+                                Tag="Resources/Drawing_5.png">
                                     <Image  Source="Resources/Drawing_5.png" Grid.Column="1" Stretch="Uniform" />
                                 </local:ImageChooseButton>
                             </Border>
@@ -103,7 +103,7 @@
                               Style="{StaticResource GridChooseImage}">
                             <Border BorderThickness="2" BorderBrush="Black" Padding="10" >
                                 <local:ImageChooseButton Click="Choose"
-                                Tag="1">
+                                Tag="Resources/Drawing_6.png">
                                     <Image  Source="Resources/Drawing_6.png" Grid.Column="1" Stretch="Uniform" />
                                 </local:ImageChooseButton>
                             </Border>

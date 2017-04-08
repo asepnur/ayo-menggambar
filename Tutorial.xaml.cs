@@ -33,8 +33,14 @@ namespace Microsoft.Kinect.Samples.KinectPaint
 
         private void Choose(object sender, RoutedEventArgs args)
         {
-            Button btn = (Button)sender;
-            Console.WriteLine(btn.Tag.ToString());
+            string uri = "/KinectPaint;component/" + ((Button)sender).Tag.ToString();
+            Console.WriteLine(uri);
+
+            // Hide window and add show selected picture
+            this.Visibility = Visibility.Collapsed;
+            ImageSource img = new BitmapImage(new Uri(uri, UriKind.RelativeOrAbsolute));
+            MainWindow.Instance.SetTutorialActive(false);
+            MainWindow.Instance.PART_LoadedBackground.Source = img;
         }
     }
 }
