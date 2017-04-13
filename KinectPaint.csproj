@@ -85,6 +85,7 @@
     <Compile Include="ArchivedImage.cs" />
     <Compile Include="FocusingStackPanel.cs" />
     <Compile Include="ImageChooseButton.cs" />
+    <Compile Include="Constant.cs" />
     <Compile Include="KinectPaintCheckBox.cs" />
     <Compile Include="CursorEventArgs.cs" />
     <Compile Include="KinectCursor.xaml.cs">
@@ -174,9 +175,9 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\pencil_down.png" />
     <Resource Include="Resources\splashscreen.png" />
     <Resource Include="Resources\pencil.png" />
-    <Resource Include="Resources\pencil_down.png" />
     <Resource Include="Resources\thickness-01.png" />
     <Resource Include="Resources\thickness-02.png" />
     <Resource Include="Resources\thickness-03.png" />
@@ -207,12 +208,12 @@
     <Resource Include="Resources\brush_down.png" />
     <Resource Include="Resources\eraser.png" />
     <Resource Include="Resources\eraser_down.png" />
-    <Resource Include="Resources\drawing_1.png" />
-    <Resource Include="Resources\drawing_2.png" />
-    <Resource Include="Resources\drawing_3.png" />
-    <Resource Include="Resources\drawing_4.png" />
-    <Resource Include="Resources\drawing_5.png" />
-    <Resource Include="Resources\drawing_6.png" />
+    <Resource Include="Resources\drawing1.png" />
+    <Resource Include="Resources\drawing2.png" />
+    <Resource Include="Resources\drawing3.png" />
+    <Resource Include="Resources\drawing4.png" />
+    <Resource Include="Resources\drawing5.png" />
+    <Resource Include="Resources\drawing6.png" />
     <Content Include="Resources\main-bg.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
