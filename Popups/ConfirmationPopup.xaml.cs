@@ -65,14 +65,14 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         #region Button Handlers
 
         // Called when the user presses OK
-        private void OnOK(object sender, RoutedEventArgs args)
+        protected void OnOk(object sender, RoutedEventArgs args)
         {
             DidConfirm = true;
             _window.ConfirmationFinished();
         }
 
         // Called when the user presses Cancel
-        private void OnCancel(object sender, RoutedEventArgs args)
+        protected void OnCancel(object sender, RoutedEventArgs args)
         {
             DidConfirm = false;
             _window.ConfirmationFinished();

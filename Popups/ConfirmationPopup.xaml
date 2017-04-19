@@ -28,7 +28,7 @@
         <local:KinectPaintButton Grid.Column="1"
                                  Grid.Row="1"
                                  Content="ok"
-                                 Click="OnOK"
+                                 Click="OnOk"
                                  HorizontalAlignment="Left"
                                  Style="{StaticResource MetroButtonStyle}" />
 

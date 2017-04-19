@@ -37,7 +37,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
             List<string> files = new List<string>(Directory.GetFiles(App.PhotoFolder));
             ArchivedImage[] images = new ArchivedImage[files.Count > FilesToDisplay ? FilesToDisplay : files.Count];
 
-
+            
             files.Sort((x, y) =>
                 {
                     DateTime xd = File.GetLastWriteTime(x);
@@ -73,13 +73,13 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         #region Event Handlers
 
         // When the user selects an image to load, just load it so it's an easy 1-step process.
-        private void OnSelectedImageChanged(object sender, SelectionChangedEventArgs args)
+        protected void OnSelectedImageChanged(object sender, SelectionChangedEventArgs args)
         {
             _main.LoadingFinished();
         }
 
         // Canceling simply involves nulling out the popup window to make it go away.
-        private void OnCancel(object sender, RoutedEventArgs args)
+        protected void OnCancel(object sender, RoutedEventArgs args)
         {
             _main.CurrentPopup = null;
         }

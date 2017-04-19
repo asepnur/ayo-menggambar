@@ -12,7 +12,7 @@
         Cursor="None"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         Background="{StaticResource MainBackgroundBrush}"
-        Loaded="MainWindow_Loaded"
+        Loaded="MainWindowLoaded"
         Closed="Window_Closed"
         d:DesignWidth="1280"
         d:DesignHeight="720">
@@ -35,7 +35,7 @@
             <Image x:Name="PART_KinectVideo" /> <!--not used anymore-->
             <Image x:Name="PART_LoadedBackground"
                     Margin="80"
-                    Stretch="Fill" />
+                    Stretch="Fill"/>
             <Image x:Name="PART_LoadedImageDisplay"
                     Stretch="None"
                     HorizontalAlignment="Center"
@@ -96,7 +96,7 @@
                        Margin="15,30,0,0">
                 <local:KinectPaintButton Click="OnQuit"
                                          Tag="quit"
-                                         Style="{StaticResource KinectButtonStyle}">
+                                         Style="{StaticResource CloseButtonStyle}">
                     <Image Source="/KinectPaint;component/Resources/close.png"
                            Style="{StaticResource ButtonIconStyle}"
                            Width="30"
@@ -106,11 +106,6 @@
             </WrapPanel>
 
             <StackPanel Grid.Row="2">
-                <TextBlock Text="File Options"
-                           Style="{StaticResource LabelStyle}"
-                           HorizontalAlignment="Right"
-                           TextAlignment="Right" />
-
                 <WrapPanel Style="{StaticResource RightButtonPanelStyle}"
                            Margin="15,0,0,20">
                     <local:KinectPaintButton Click="OnSave"

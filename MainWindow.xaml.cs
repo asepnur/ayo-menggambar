@@ -17,6 +17,7 @@ using System.Diagnostics;
 using Microsoft.Kinect;
 
 using Coding4Fun.Kinect.Wpf;
+using System.Text.RegularExpressions;
 
 namespace Microsoft.Kinect.Samples.KinectPaint
 {
@@ -73,9 +74,32 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         /// </summary>
         public void LoadingFinished()
         {
+            string uri = ((LoadPopup)CurrentPopup).SelectedImage.Image.ToString();
+            ImageSource img = null;
+
+            // Set an image
+            if (Regex.Match(uri, @"dg\d+_").Success)
+            {
+                string temp = Regex.Match(uri, @"dg\d+_").ToString();
+                string path = Constant.ImagePathCSharp + "drawing" + Regex.Match(uri, @"\d+").ToString() + ".png";
+                img = new BitmapImage(new Uri(path, UriKind.RelativeOrAbsolute));
+            }
+            else if (uri.ToLower().Contains("coloring"))
+            {
+                string temp = Regex.Match(uri, @"dg\d+_").ToString();
+                string path = Constant.ImagePathCSharp + "coloring" + Regex.Match(uri, @"\d+").ToString() + ".png";
+                img = new BitmapImage(new Uri(path, UriKind.RelativeOrAbsolute));
+            }
+            
+            // Hide tutorial layer
+            Tutorial.Visibility = Visibility.Collapsed;
+
+            // Change background
+            Instance.PART_LoadedBackground.Source = img;
             LoadedImage = new WriteableBitmap(new BitmapImage(((LoadPopup)CurrentPopup).SelectedImage.Image));
             CurrentPopup = null;
             _imageUnsaved = false;
+            _isTutorialActive = false;
         }
 
         /// <summary>
@@ -437,8 +461,15 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         // Called when the user presses the 'Save' button
         private void OnSave(object sender, RoutedEventArgs args)
         {
-            LoadedImage.Save(Path.Combine(App.PhotoFolder, "KinectPaint_" + DateTime.Now.ToString("yyyyMMdd_HHmmss", CultureInfo.InvariantCulture) + ".png"), ImageFormat.Png);
-
+            string pathBackground = "";
+            string uri = Instance.PART_LoadedBackground.Source != null ? Instance.PART_LoadedBackground.Source.ToString().ToLower() : "";
+            if (uri.Contains("drawing")){
+                pathBackground = "dg" + Regex.Match(uri, @"\d+").Value + "_";
+            } else if (uri.Contains("coloring"))
+            {
+                pathBackground = "cl" + Regex.Match(uri, @"\d+").Value + "_";
+            }
+            LoadedImage.Save(Path.Combine(App.PhotoFolder, pathBackground + DateTime.Now.ToString("yyyyMMdd_HHmmss", CultureInfo.InvariantCulture) + ".png"), ImageFormat.Png);
             _imageUnsaved = false;
 
             // Animate the "Saved" message so the user knows it worked
@@ -468,7 +499,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
 
         #region Internal
 
-        void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        void MainWindowLoaded(object sender, RoutedEventArgs e)
         {
             // Set up the color picker's initial state
             _colorpicker = (FocusingStackPanel)VisualTreeHelper.GetChild(VisualTreeHelper.GetChild(VisualTreeHelper.GetChild(PART_ColorPickerListBox, 0), 0), 0);
@@ -505,11 +536,12 @@ namespace Microsoft.Kinect.Samples.KinectPaint
 
                 
             }
-            catch (Exception)
+            catch (Exception err)
             {
                 // Failed to set up the Kinect. Show the error onscreen (app will switch to using mouse movement)
                 sensor = null;
                 PART_ErrorText.Visibility = Visibility.Visible;
+                Console.WriteLine("Panics : " + err.ToString());
             }
         }
 
@@ -575,30 +607,6 @@ namespace Microsoft.Kinect.Samples.KinectPaint
                         (int)SelectedSize);
                     break;
             }
-        }
-
-        // Called when a new video frame is ready from the Kinect and the option to display it is turned on.
-        public void NuiRuntime_VideoFrameReady(object sender, AllFramesReadyEventArgs e)
-        {
-
-            if (ShowCamera)
-            {
-                using (ColorImageFrame colorFrame = e.OpenColorImageFrame())
-                {
-                    if (colorFrame == null)
-                    {
-                        return;
-                    }
-
-                    PART_KinectVideo.Source = colorFrame.ToBitmapSource();
-
-                }
-            }
-			else
-				PART_KinectVideo.Source = null;
-
-
-
         }
 
         // Called when the cursor enters the area of the color picker

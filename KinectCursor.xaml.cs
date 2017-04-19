@@ -230,11 +230,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         void OnUpdate(object sender, AllFramesReadyEventArgs e)
         {
             // KINECT Add code to get joint data and smooth it
-            if (Application.Current.MainWindow == null || MainWindow.Instance == null) return;
-
-
-            MainWindow.Instance.NuiRuntime_VideoFrameReady(this, e); 
-           
+            if (Application.Current.MainWindow == null || MainWindow.Instance == null) return;           
 
 
             Nui.Skeleton skeleton = null;

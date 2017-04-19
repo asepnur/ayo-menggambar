@@ -13,6 +13,7 @@ using System.Windows.Media.Animation;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Diagnostics;
+using System.Text.RegularExpressions;
 
 namespace Microsoft.Kinect.Samples.KinectPaint
 {
@@ -26,15 +27,14 @@ namespace Microsoft.Kinect.Samples.KinectPaint
             InitializeComponent();
         }
 
-        private void CloseButtonClick(object sender, RoutedEventArgs e)
+        protected void CloseButtonClick(object sender, RoutedEventArgs e)
         {
             Visibility = Visibility.Collapsed;
         }
 
-        private void Choose(object sender, RoutedEventArgs args)
+        protected void Choose(object sender, RoutedEventArgs args)
         {
             string uri = "/KinectPaint;component/" + ((Button)sender).Tag.ToString();
-            Console.WriteLine(uri);
 
             // Hide window and add show selected picture
             this.Visibility = Visibility.Collapsed;
