@@ -8,8 +8,7 @@ using System.Windows;
 using System.IO;
 using System.Windows.Media;
 using System.Diagnostics;
-
-
+using System.Threading;
 
 namespace Microsoft.Kinect.Samples.KinectPaint
 {
@@ -18,6 +17,22 @@ namespace Microsoft.Kinect.Samples.KinectPaint
     /// </summary>
     public partial class App : Application
     {
+        private const int TIME_SPLASH = 1500;
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            SplashScreen splash = new SplashScreen();
+            splash.Show();
+            Stopwatch timer = new Stopwatch();
+            timer.Start();
+            base.OnStartup(e);
+
+            Menu menu = new Menu();
+            timer.Stop();
+            int remainingTimeToShowSplash = TIME_SPLASH - (int)timer.ElapsedMilliseconds;
+            if (remainingTimeToShowSplash > 0)
+                Thread.Sleep(remainingTimeToShowSplash);
+            splash.Close();
+        }
         /// <summary>
         /// Gets the path to My Pictures\KinectPaint
         /// </summary>
