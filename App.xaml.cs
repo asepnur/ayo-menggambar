@@ -29,7 +29,6 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         public App()
         {
             PhotoFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyPictures), "KinectPaint");
-
             // The app depends on the My Pictures\KinectPaint folder existing, so create it if it isn't there.
             if (!Directory.Exists(PhotoFolder))
                 Directory.CreateDirectory(PhotoFolder);

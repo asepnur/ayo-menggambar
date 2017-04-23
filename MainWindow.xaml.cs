@@ -52,15 +52,12 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         #endregion
 
         public MainWindow()
-        {
+        {    
             _isTutorialActive = true;
-
             InitializeComponent();
-
             SelectedBrush = _availableBrushes[0];
             SelectedColor = _availableColors[0];
             SelectedSize = _availableSizes[0];
-
             // Make sure only one MainWindow ever gets created
             Debug.Assert(Instance == null);
 

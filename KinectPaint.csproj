@@ -94,6 +94,9 @@
     <Compile Include="KinectPaintButton.cs" />
     <Compile Include="KinectPaintListBox.cs" />
     <Compile Include="KinectPaintListBoxItem.cs" />
+    <Compile Include="Menu.xaml.cs">
+      <DependentUpon>Menu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Popups\ConfirmationPopup.xaml.cs">
       <DependentUpon>ConfirmationPopup.xaml</DependentUpon>
     </Compile>
@@ -115,6 +118,10 @@
       <DependentUpon>Tutorial.xaml</DependentUpon>
     </Compile>
     <Page Include="KinectCursor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Menu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -175,6 +182,8 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\mewarnai.png" />
+    <Resource Include="Resources\Menggambar.png" />
     <Resource Include="Resources\pencil_down.png" />
     <Resource Include="Resources\splashscreen.png" />
     <Resource Include="Resources\pencil.png" />
@@ -214,6 +223,8 @@
     <Resource Include="Resources\drawing4.png" />
     <Resource Include="Resources\drawing5.png" />
     <Resource Include="Resources\drawing6.png" />
+    <Resource Include="Resources\gambarbebas.png" />
+    <Resource Include="Resources\back_menu.png" />
     <Content Include="Resources\main-bg.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

@@ -34,7 +34,6 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         public SplashScreen()
         {
             InitializeComponent();
-
             // Make sure only one MainWindow ever gets created
             Debug.Assert(Instance == null);
             Instance = this;
