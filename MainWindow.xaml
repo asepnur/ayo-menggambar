@@ -55,12 +55,12 @@
         
         <StackPanel x:Name="PART_selectionUI"
                     Margin="0,16,0,0">
-            <Border Background="White" Margin="13,0,0,10" CornerRadius="5">
+            <Border Background="White" Margin="28,10,0,10" CornerRadius="5">
                 <TextBlock Text="Alat"
-                       Style="{StaticResource LabelStyle}" Margin="0,0,30,0" Padding="15, 10, 10, 10" />
+                       Style="{StaticResource LabelStyle}" Margin="0,0,30,0" Padding="15, 10, 0, 10" />
             </Border>
 
-            <Border Background="White" Margin="13,0,0,10" CornerRadius="5">
+            <Border Background="White" Margin="28,0,0,0" CornerRadius="5">
                 <Grid>
                     <local:KinectPaintListBox SelectedItem="{Binding SelectedBrush, Mode=TwoWay}"
                                 ItemsSource="{Binding AvailableBrushes}"
@@ -69,12 +69,12 @@
                 </Grid>
             </Border>
             
-            <Border Background="White" Margin="13,10,0,10" CornerRadius="5">
+            <Border Background="White" Margin="28,10,0,10" CornerRadius="5">
                 <TextBlock Text="Ketebalan"
-                       Style="{StaticResource LabelStyle}" />
+                       Style="{StaticResource LabelStyle}" Margin="0,0,30,0" Padding="15, 10, 0, 10" />
             </Border>
 
-            <Border Background="White" Margin="13,0,0,10" CornerRadius="5">
+            <Border Background="White" Margin="28,0,0,0" CornerRadius="5">
                 <Grid>
                     <local:KinectPaintListBox ItemsSource="{Binding AvailableSizes}"
                                       SelectedItem="{Binding SelectedSize, Mode=TwoWay}"
@@ -93,7 +93,7 @@
             </Grid.RowDefinitions>
 
             <WrapPanel Style="{StaticResource RightButtonPanelStyle}"
-                       Margin="15,30,0,0">
+                       Margin="35,-20,0,0">
                 <local:KinectPaintButton Click="OnQuit"
                                          Tag="quit"
                                          Style="{StaticResource CloseButtonStyle}">
@@ -107,16 +107,16 @@
 
             <StackPanel Grid.Row="2">
                 <WrapPanel Style="{StaticResource RightButtonPanelStyle}"
-                           Margin="15,0,0,20">
+                           Margin="15,0,0,60">
                     <local:KinectPaintButton Click="OnSave"
-                                             Tag="save"
+                                             Tag="Simpan"
                                              Style="{StaticResource KinectButtonStyle}">
                         <Image Source="/KinectPaint;component/Resources/save.png"
                                Style="{StaticResource ButtonIconStyle}" />
                     </local:KinectPaintButton>
 
                     <local:KinectPaintButton Click="OnLoad"
-                                             Tag="load"
+                                             Tag="File lama"
                                              Style="{StaticResource KinectButtonStyle}">
                         <Image Source="/KinectPaint;component/Resources/folder.png"
                                Style="{StaticResource ButtonIconStyle}" />
@@ -124,7 +124,7 @@
 
                     <local:KinectPaintButton Click="OnNew"
                                              Style="{StaticResource KinectButtonStyle}"
-                                             Tag="new">
+                                             Tag="Buat baru">
                         <Image Source="/KinectPaint;component/Resources/new.png"
                                Style="{StaticResource ButtonIconStyle}" />
                     </local:KinectPaintButton>
@@ -177,8 +177,8 @@
                             Grid.RowSpan="2"
                             d:IsHidden="True" />
 
-        <TextBlock x:Name="PART_ErrorText"
-                   Text="Failed to start the Kinect!"
+        <TextBlock x:Name="PART_ErrorText" Margin="610, 35, 0, 0"
+                   Text="Gagal terhubung dengan Kinect!"
                    IsHitTestVisible="False"
                    Visibility="Collapsed"
                    Grid.Column="1"
