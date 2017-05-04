@@ -9,6 +9,7 @@ using System.IO;
 using System.Windows.Media;
 using System.Diagnostics;
 using System.Threading;
+using System.Media;
 
 namespace Microsoft.Kinect.Samples.KinectPaint
 {
@@ -20,6 +21,9 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         private const int TIME_SPLASH = 1500;
         protected override void OnStartup(StartupEventArgs e)
         {
+            SoundPlayer back = new SoundPlayer("Resources/backsound.wav");
+            back.PlayLooping();
+
             SplashScreen splash = new SplashScreen();
             splash.Show();
             Stopwatch timer = new Stopwatch();
