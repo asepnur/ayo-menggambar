@@ -10,6 +10,16 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.IO;
+using System.Windows.Media.Animation;
+using System.Globalization;
+using System.Diagnostics;
+
+using Microsoft.Kinect;
+
+using Coding4Fun.Kinect.Wpf;
+using System.Text.RegularExpressions;
+
 
 namespace Microsoft.Kinect.Samples.KinectPaint
 {
@@ -18,9 +28,21 @@ namespace Microsoft.Kinect.Samples.KinectPaint
     /// </summary>
     public partial class Menu : Window
     {
+        public partial class MainWindow : Window
+        {
+            public static MainWindow Instance { get; private set; }
+            Point _pastCursorPosition;
+        }
         public Menu()
         {
             InitializeComponent();
+        }
+
+        private void Menggambar(object sender, RoutedEventArgs e)
+        {
+            MainWindow mw = new MainWindow();
+            mw.Show();
+            this.Close();
         }
     }
 }
