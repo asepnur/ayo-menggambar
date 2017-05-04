@@ -16,18 +16,13 @@
         d:DesignWidth="1280"
         d:DesignHeight="720">
     <Grid>
-        <!--<local:KinectCursor x:Name="PART_Cursor"
-                            Grid.ColumnSpan="3"
-                            Grid.RowSpan="2"
-                            d:IsHidden="True" />-->
-        <!--<local:Menu d:IsHidden="True"
+        <local:Menu d:IsHidden="True"
                       x:Name="Menu"
-                      Visibility="Visible"/>-->
-        <!--<local:MainWindow d:IsHidden="True"
+                      Visibility="Visible"/>
+        <local:MainWindow d:IsHidden="True"
                       x:Name="MainWindow"
-                      Visibility="Hidden"/>-->
-        <!--<local:Tutorial d:IsHidden="True"
-                      x:Name="Tutorial"
-                      Visibility="Hidden"/>-->
+                      Visibility="Hidden" />
+        <local:KinectCursor x:Name="PART_Cursor"
+                            d:IsHidden="True" />
     </Grid>
 </Window>

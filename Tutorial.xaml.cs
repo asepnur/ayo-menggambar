@@ -22,9 +22,12 @@ namespace Microsoft.Kinect.Samples.KinectPaint
     /// </summary>
     public partial class Tutorial : UserControl
     {
+        public static Tutorial Instance { get; private set; }
+
         public Tutorial()
         {
             InitializeComponent();
+            Instance = this;
         }
 
         protected void CloseButtonClick(object sender, RoutedEventArgs e)
@@ -34,8 +37,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
 
         protected void Choose(object sender, RoutedEventArgs args)
         {
-            string uri = "/KinectPaint;component/" + ((Button)sender).Tag.ToString();
-
+            string uri = ((Button)sender).Tag.ToString();
             // Hide window and add show selected picture
             this.Visibility = Visibility.Collapsed;
             ImageSource img = new BitmapImage(new Uri(uri, UriKind.RelativeOrAbsolute));

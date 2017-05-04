@@ -168,10 +168,10 @@
                         Style="{StaticResource PopupContentControlStyle}"
                         d:IsHidden="True" />
 
-        <local:KinectCursor x:Name="PART_Cursor"
+        <!--<local:KinectCursor x:Name="PART_Cursor"
                             Grid.ColumnSpan="3"
                             Grid.RowSpan="2"
-                            d:IsHidden="True" />
+                            d:IsHidden="True" />-->
 
         <TextBlock x:Name="PART_ErrorText"
                    Text="Failed to start the Kinect!"

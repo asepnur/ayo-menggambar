@@ -24,12 +24,12 @@ namespace Microsoft.Kinect.Samples.KinectPaint
     /// <summary>
     /// Enumerates types of actions that require a confirmation popup
     /// </summary>
-    //public enum ActionAwaitingConfirmation
-    //{
-    //    Close,
-    //    New,
-    //    Load
-    //}
+    public enum ActionAwaitingConfirmation
+    {
+        Close,
+        New,
+        Load
+    }
 
     /// <summary>
     /// The main application window
@@ -45,7 +45,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
 
         bool _isTutorialActive;
         Point _pastCursorPosition;
-        bool _imageUnsaved;
+        bool _imageUnsaved = false;
         FocusingStackPanel _colorpicker;
         bool _isPickingColor;
 
@@ -77,20 +77,17 @@ namespace Microsoft.Kinect.Samples.KinectPaint
             // Set an image
             if (Regex.Match(uri, @"dg\d+_").Success)
             {
-                string temp = Regex.Match(uri, @"dg\d+_").ToString();
-                string path = Constant.ImagePathCSharp + "drawing" + Regex.Match(uri, @"\d+").ToString() + ".png";
+                string path = Constant.ImagePathCSharp + "Drawing-" + Regex.Match(uri, @"\d+").ToString() + ".png";
                 img = new BitmapImage(new Uri(path, UriKind.RelativeOrAbsolute));
             }
-            else if (uri.ToLower().Contains("coloring"))
+            else if (Regex.Match(uri, @"cl\d+_").Success)
             {
-                string temp = Regex.Match(uri, @"dg\d+_").ToString();
-                string path = Constant.ImagePathCSharp + "coloring" + Regex.Match(uri, @"\d+").ToString() + ".png";
+                string path = Constant.ImagePathCSharp + "Coloring-" + Regex.Match(uri, @"\d+").ToString() + ".png";
                 img = new BitmapImage(new Uri(path, UriKind.RelativeOrAbsolute));
             }
             
             // Hide tutorial layer
             Tutorial.Visibility = Visibility.Collapsed;
-
             // Change background
             Instance.PART_LoadedBackground.Source = img;
             LoadedImage = new WriteableBitmap(new BitmapImage(((LoadPopup)CurrentPopup).SelectedImage.Image));
@@ -107,7 +104,6 @@ namespace Microsoft.Kinect.Samples.KinectPaint
             ConfirmationPopup popup = (ConfirmationPopup)CurrentPopup;
 
             CurrentPopup = null;
-
             ActionAwaitingConfirmation action = (ActionAwaitingConfirmation)popup.UserData;
 
             switch (action)
@@ -141,16 +137,16 @@ namespace Microsoft.Kinect.Samples.KinectPaint
             }
 
             // Make the cursor passive so buttons and stuff don't respond to it
-            PART_Cursor.Passive = true;
+            Container.Instance.PART_Cursor.Passive = true;
 
             // Draw at the current position and start checking for updates until done
-            Point pos = PART_Cursor.GetPosition(PART_LoadedImageDisplay);
+            Point pos = Container.Instance.PART_Cursor.GetPosition(PART_LoadedImageDisplay);
             Draw(pos, pos, null);
             _pastCursorPosition = pos;
-            if (sensor == null)
+            if (Container.Instance.sensor == null)
                 CompositionTarget.Rendering += ContinueDrawingStroke;
             else
-                sensor.SkeletonFrameReady += ContinueDrawingStroke;
+                Container.Instance.sensor.SkeletonFrameReady += ContinueDrawingStroke;
         }
 
         /// <summary>
@@ -159,15 +155,15 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         public void StopPainting()
         {
             // Make the cursor active again
-            PART_Cursor.Passive = false;
+            Container.Instance.PART_Cursor.Passive = false;
 
             _imageUnsaved = true;
 
             // Stop listening for cursor changes
-            if (sensor == null)
+            if (Container.Instance.sensor == null)
                 CompositionTarget.Rendering -= ContinueDrawingStroke;
             else
-                sensor.SkeletonFrameReady -= ContinueDrawingStroke;
+                Container.Instance.sensor.SkeletonFrameReady -= ContinueDrawingStroke;
         }
 
         #endregion
@@ -232,7 +228,6 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         /// <summary>
         /// Gets the Kinect runtime object
         /// </summary>
-        public KinectSensor sensor { get; private set; }
 
         #region SelectedColor
 
@@ -341,56 +336,8 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         /// Gets or sets the value of the <see cref="ShowCamera" />
         /// property. This is a dependency property.
         /// </summary>
-        public bool ShowCamera
-        {
-            get
-            {
-                return (bool)GetValue(ShowCameraProperty);
-            }
-            set
-            {
-                SetValue(ShowCameraProperty, value);                                
-            }
-        }
 
-        /// <summary>
-        /// Identifies the <see cref="ShowCamera" /> dependency property.
-        /// </summary>
-        public static readonly DependencyProperty ShowCameraProperty = DependencyProperty.Register(
-            ShowCameraPropertyName,
-            typeof(bool),
-            typeof(MainWindow),
-            new UIPropertyMetadata(
-                false,
-                (s, e) =>
-                {
-                    var win = (MainWindow)s;
-
-                    if (win.sensor == null)
-                    { 
-                        return;
-                        
-                    }
-
-
-
-
-                    //if ((bool)e.NewValue)
-                    //{
-                    //    win.CameraVisible = true; 
-                    //}
-                    //else
-                    //{
-                    //    if (win.sensor == null)
-                    //    {
-                    //        return;
-                    //    }
-
-                    ////    win.CameraVisible = false; 
-                    ////    win.PART_KinectVideo.Source = null;
-                    //}
-                }));
-
+        
         #endregion
 
         #region LoadedImage
@@ -501,61 +448,12 @@ namespace Microsoft.Kinect.Samples.KinectPaint
             // Set up the color picker's initial state
             _colorpicker = (FocusingStackPanel)VisualTreeHelper.GetChild(VisualTreeHelper.GetChild(VisualTreeHelper.GetChild(PART_ColorPickerListBox, 0), 0), 0);
             _colorpicker.FocusedQuantity = 50;
-
-            try
-            {
-
-                if (KinectSensor.KinectSensors.Count > 0)
-                {
-                    //grab first
-                    sensor = KinectSensor.KinectSensors[0];
-                }
-
-                if (sensor.Status != KinectStatus.Connected || KinectSensor.KinectSensors.Count == 0)
-                {
-                    MessageBox.Show("No Kinect connected!"); 
-                }
-
-                // Set up the Kinect
-                
-                var parameters = new TransformSmoothParameters
-                {
-                    Smoothing = 0.3f,
-                    Correction = 0.0f,
-                    Prediction = 0.0f,
-                    JitterRadius = 1.0f,
-                    MaxDeviationRadius = 0.5f
-                };
-
-                sensor.SkeletonStream.Enable(parameters);
-                sensor.ColorStream.Enable(ColorImageFormat.RgbResolution640x480Fps30);
-                sensor.Start(); 
-
-                
-            }
-            catch (Exception err)
-            {
-                // Failed to set up the Kinect. Show the error onscreen (app will switch to using mouse movement)
-                sensor = null;
-                PART_ErrorText.Visibility = Visibility.Visible;
-                Console.WriteLine("Panics : " + err.ToString());
-            }
-        }
-
-        private void Window_Closed(object sender, EventArgs e)
-        {
-            if(sensor != null)
-                if (sensor.IsRunning)
-                {
-                    sensor.Stop(); 
-                }
-            Environment.Exit(0);
         }
 
         void ContinueDrawingStroke(object sender, EventArgs e)
         {
-            Point pos = PART_Cursor.GetPosition(PART_LoadedImageDisplay);
-            Point prev = PART_Cursor.GetPreviousPosition(PART_LoadedImageDisplay);
+            Point pos = Container.Instance.PART_Cursor.GetPosition(PART_LoadedImageDisplay);
+            Point prev = Container.Instance.PART_Cursor.GetPreviousPosition(PART_LoadedImageDisplay);
             Draw(prev, pos, _pastCursorPosition);
             _pastCursorPosition = prev;
         }

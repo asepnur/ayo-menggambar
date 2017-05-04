@@ -22,16 +22,6 @@ using System.Text.RegularExpressions;
 namespace Microsoft.Kinect.Samples.KinectPaint
 {
     /// <summary>
-    /// Enumerates types of actions that require a confirmation popup
-    /// </summary>
-    public enum ActionAwaitingConfirmation
-    {
-        Close,
-        New,
-        Load
-    }
-
-    /// <summary>
     /// The main application window
     /// </summary>
     public partial class Container : Window
@@ -41,75 +31,64 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         /// </summary>
         public static Container Instance { get; private set; }
 
-        #region Data
-
-        bool _isTutorialActive;
-        Point _pastCursorPosition;
-        bool _imageUnsaved;
-        FocusingStackPanel _colorpicker;
-        bool _isPickingColor;
-
-        #endregion
-
         public Container()
         {    
             InitializeComponent();
             Instance = this;
         }
 
+        public KinectSensor sensor { get; private set; }
+
         void MainWindowLoaded(object sender, RoutedEventArgs e)
         {
-            // Set up the color picker's initial state
-            //_colorpicker = (FocusingStackPanel)VisualTreeHelper.GetChild(VisualTreeHelper.GetChild(VisualTreeHelper.GetChild(PART_ColorPickerListBox, 0), 0), 0);
-            //_colorpicker.FocusedQuantity = 50;
 
-            //try
-            //{
+            try
+            {
 
-            //    if (KinectSensor.KinectSensors.Count > 0)
-            //    {
-            //        //grab first
-            //        sensor = KinectSensor.KinectSensors[0];
-            //    }
+                if (KinectSensor.KinectSensors.Count > 0)
+                {
+                    //grab first
+                    sensor = KinectSensor.KinectSensors[0];
+                }
 
-            //    if (sensor.Status != KinectStatus.Connected || KinectSensor.KinectSensors.Count == 0)
-            //    {
-            //        MessageBox.Show("No Kinect connected!");
-            //    }
+                if (sensor.Status != KinectStatus.Connected || KinectSensor.KinectSensors.Count == 0)
+                {
+                    MessageBox.Show("No Kinect connected!");
+                }
 
-            //    // Set up the Kinect
+                // Set up the Kinect
 
-            //    var parameters = new TransformSmoothParameters
-            //    {
-            //        Smoothing = 0.3f,
-            //        Correction = 0.0f,
-            //        Prediction = 0.0f,
-            //        JitterRadius = 1.0f,
-            //        MaxDeviationRadius = 0.5f
-            //    };
+                var parameters = new TransformSmoothParameters
+                {
+                    Smoothing = 0.3f,
+                    Correction = 0.0f,
+                    Prediction = 0.0f,
+                    JitterRadius = 1.0f,
+                    MaxDeviationRadius = 0.5f
+                };
 
-            //    sensor.SkeletonStream.Enable(parameters);
-            //    sensor.ColorStream.Enable(ColorImageFormat.RgbResolution640x480Fps30);
-            //    sensor.Start();
+                sensor.SkeletonStream.Enable(parameters);
+                sensor.ColorStream.Enable(ColorImageFormat.RgbResolution640x480Fps30);
+                sensor.Start();
 
 
-            //}
-            //catch (Exception err)
-            //{
-            //    // Failed to set up the Kinect. Show the error onscreen (app will switch to using mouse movement)
-            //    sensor = null;
-            //    PART_ErrorText.Visibility = Visibility.Visible;
-            //    Console.WriteLine("Panics : " + err.ToString());
-            //}
-
+            }
+            catch (Exception err)
+            {
+                // Failed to set up the Kinect. Show the error onscreen (app will switch to using mouse movement)
+                sensor = null;
+                MainWindow.Instance.PART_ErrorText.Visibility = Visibility.Visible;
+                Console.WriteLine("Panics : " + err.ToString());
+            }
         }
+
         private void Window_Closed(object sender, EventArgs e)
         {
-            //if (sensor != null)
-            //    if (sensor.IsRunning)
-            //    {
-            //        sensor.Stop();
-            //    }
+            if (sensor != null)
+                if (sensor.IsRunning)
+                {
+                    sensor.Stop();
+                }
             Environment.Exit(0);
         }
     }
