@@ -394,7 +394,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         private void OnNew(object sender, RoutedEventArgs args)
         {
             if (_imageUnsaved)
-                CurrentPopup = new ConfirmationPopup("Unsaved changes will be lost! Continue?", ActionAwaitingConfirmation.New, this);
+                CurrentPopup = new ConfirmationPopup("Gambar yang belum disimpan akan hilang, lanjutkan?", ActionAwaitingConfirmation.New, this);
             else
             {
                 _imageUnsaved = false;
@@ -425,7 +425,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         private void OnLoad(object sender, RoutedEventArgs args)
         {
             if (_imageUnsaved)
-                CurrentPopup = new ConfirmationPopup("Unsaved changes will be lost! Continue?", ActionAwaitingConfirmation.Load, this);
+                CurrentPopup = new ConfirmationPopup("Gambar yang belum disimpan akan hilang, lanjutkan?", ActionAwaitingConfirmation.Load, this);
             else
                 CurrentPopup = new LoadPopup(this);
         }
@@ -434,7 +434,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         private void OnQuit(object sender, RoutedEventArgs args)
         {
             if (_imageUnsaved)
-                CurrentPopup = new ConfirmationPopup("Quit without saving?", ActionAwaitingConfirmation.Close, this);
+                CurrentPopup = new ConfirmationPopup("Keluar tanpa menyimpan?", ActionAwaitingConfirmation.Close, this);
             else
                 Container.Instance.Close();
         }
