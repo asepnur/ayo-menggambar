@@ -1,0 +1,33 @@
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:Microsoft.Kinect.Samples.KinectPaint"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ignore="http://www.ignore.com"
+        mc:Ignorable="d ignore"
+        x:Class="Microsoft.Kinect.Samples.KinectPaint.Container"
+        Title="Kinect Paint"
+        WindowState="Maximized"
+        WindowStyle="None"
+        Cursor="None"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        Loaded="MainWindowLoaded"
+        Closed="Window_Closed"
+        d:DesignWidth="1280"
+        d:DesignHeight="720">
+    <Grid>
+        <!--<local:KinectCursor x:Name="PART_Cursor"
+                            Grid.ColumnSpan="3"
+                            Grid.RowSpan="2"
+                            d:IsHidden="True" />-->
+        <!--<local:Menu d:IsHidden="True"
+                      x:Name="Menu"
+                      Visibility="Visible"/>-->
+        <!--<local:MainWindow d:IsHidden="True"
+                      x:Name="MainWindow"
+                      Visibility="Hidden"/>-->
+        <!--<local:Tutorial d:IsHidden="True"
+                      x:Name="Tutorial"
+                      Visibility="Hidden"/>-->
+    </Grid>
+</Window>

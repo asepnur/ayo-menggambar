@@ -24,17 +24,17 @@ namespace Microsoft.Kinect.Samples.KinectPaint
     /// <summary>
     /// Enumerates types of actions that require a confirmation popup
     /// </summary>
-    public enum ActionAwaitingConfirmation
-    {
-        Close,
-        New,
-        Load
-    }
+    //public enum ActionAwaitingConfirmation
+    //{
+    //    Close,
+    //    New,
+    //    Load
+    //}
 
     /// <summary>
     /// The main application window
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : UserControl
     {
         /// <summary>
         /// Gets the instance of the main window, assuming it has been created
@@ -125,7 +125,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
                     break;
                 case ActionAwaitingConfirmation.Close:
                     if (popup.DidConfirm)
-                        Close();
+                        Container.Instance.Close();
                     break;
             }
         }
@@ -489,7 +489,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
             if (_imageUnsaved)
                 CurrentPopup = new ConfirmationPopup("Quit without saving?", ActionAwaitingConfirmation.Close, this);
             else
-                Close();
+                Container.Instance.Close();
         }
 
         #endregion

@@ -26,23 +26,20 @@ namespace Microsoft.Kinect.Samples.KinectPaint
     /// <summary>
     /// Interaction logic for Menu.xaml
     /// </summary>
-    public partial class Menu : Window
+    public partial class Menu : UserControl
     {
-        public partial class MainWindow : Window
-        {
-            public static MainWindow Instance { get; private set; }
-            Point _pastCursorPosition;
-        }
+        public static Menu Instance { get; private set; }
         public Menu()
         {
             InitializeComponent();
+            Instance = this;
         }
 
-        private void Menggambar(object sender, RoutedEventArgs e)
-        {
-            MainWindow mw = new MainWindow();
-            mw.Show();
-            this.Close();
-        }
+        //private void Menggambar(object sender, RoutedEventArgs e)
+        //{
+        //    MainWindow mw = new MainWindow();
+        //    mw.Show();
+        //    this.Close();
+        //}
     }
 }

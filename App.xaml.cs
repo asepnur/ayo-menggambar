@@ -24,18 +24,18 @@ namespace Microsoft.Kinect.Samples.KinectPaint
             SoundPlayer back = new SoundPlayer("Resources/backsound.wav");
             back.PlayLooping();
 
-            SplashScreen splash = new SplashScreen();
-            splash.Show();
-            Stopwatch timer = new Stopwatch();
-            timer.Start();
-            base.OnStartup(e);
+            //SplashScreen splash = new SplashScreen();
+            //splash.Show();
+            //Stopwatch timer = new Stopwatch();
+            //timer.Start();
+            //base.OnStartup(e);
 
-            Menu menu = new Menu();
-            timer.Stop();
-            int remainingTimeToShowSplash = TIME_SPLASH - (int)timer.ElapsedMilliseconds;
-            if (remainingTimeToShowSplash > 0)
-                Thread.Sleep(remainingTimeToShowSplash);
-            splash.Close();
+            //Menu menu = new Menu();
+            //timer.Stop();
+            //int remainingTimeToShowSplash = TIME_SPLASH - (int)timer.ElapsedMilliseconds;
+            //if (remainingTimeToShowSplash > 0)
+            //    Thread.Sleep(remainingTimeToShowSplash);
+            //splash.Close();
         }
         /// <summary>
         /// Gets the path to My Pictures\KinectPaint
