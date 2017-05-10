@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:Microsoft.Kinect.Samples.KinectPaint"
              mc:Ignorable="d"
+             Cursor="None"
              d:DesignHeight="720"
              d:DesignWidth="1280">
 
@@ -49,8 +50,9 @@
                             Style="{StaticResource GridChooseImage}">
                             <Border BorderThickness="2" BorderBrush="Black" Padding="10" >
                                 <local:ImageChooseButton Click="Choose"
-                                Tag="Resources/Drawing1.png">
-                                    <Image  Source="Resources/Drawing1.png" Grid.Column="1" Stretch="Uniform" />
+                                Tag="" x:Name="BFrame1">
+                                    <Image  Source="" Grid.Column="1" Stretch="Uniform"
+                                            x:Name="Frame1"/>
                                 </local:ImageChooseButton>
                             </Border>
                         </Grid>
@@ -59,8 +61,9 @@
                               Style="{StaticResource GridChooseImage}">
                             <Border BorderThickness="2" BorderBrush="Black" Padding="10" >
                                 <local:ImageChooseButton Click="Choose"
-                                Tag="Resources/Drawing2.png">
-                                    <Image  Source="Resources/Drawing2.png" Grid.Column="1" Stretch="Uniform" />
+                                Tag="" x:Name="BFrame2">
+                                    <Image  Source="" Grid.Column="1" Stretch="Uniform"
+                                            x:Name="Frame2"/>
                                 </local:ImageChooseButton>
                             </Border>
                         </Grid>
@@ -70,8 +73,9 @@
                               Style="{StaticResource GridChooseImage}">
                             <Border BorderThickness="2" BorderBrush="Black" Padding="10" >
                                 <local:ImageChooseButton Click="Choose"
-                                Tag="Resources/Drawing3.png">
-                                    <Image  Source="Resources/Drawing3.png" Grid.Column="1" Stretch="Uniform" />
+                                Tag="" x:Name="BFrame3">
+                                    <Image  Source="" Grid.Column="1" Stretch="Uniform" 
+                                            x:Name="Frame3"/>
                                 </local:ImageChooseButton>
                             </Border>
                         </Grid>
@@ -81,8 +85,9 @@
                               Style="{StaticResource GridChooseImage}">
                             <Border BorderThickness="2" BorderBrush="Black" Padding="10" >
                                 <local:ImageChooseButton Click="Choose"
-                                Tag="Resources/Drawing4.png">
-                                    <Image  Source="Resources/Drawing4.png" Grid.Column="1" Stretch="Uniform" />
+                                Tag="" x:Name="BFrame4">
+                                    <Image  Source="" Grid.Column="1" Stretch="Uniform" 
+                                            x:Name="Frame4"/>
                                 </local:ImageChooseButton>
                             </Border>
                         </Grid>
@@ -92,8 +97,9 @@
                               Style="{StaticResource GridChooseImage}">
                             <Border BorderThickness="2" BorderBrush="Black" Padding="10" >
                                 <local:ImageChooseButton Click="Choose"
-                                Tag="Resources/Drawing5.png">
-                                    <Image  Source="Resources/Drawing5.png" Grid.Column="1" Stretch="Uniform" />
+                                Tag="" x:Name="BFrame5">
+                                    <Image  Source="" Grid.Column="1" Stretch="Uniform" 
+                                            x:Name="Frame5"/>
                                 </local:ImageChooseButton>
                             </Border>
                         </Grid>
@@ -103,8 +109,9 @@
                               Style="{StaticResource GridChooseImage}">
                             <Border BorderThickness="2" BorderBrush="Black" Padding="10" >
                                 <local:ImageChooseButton Click="Choose"
-                                Tag="Resources/Drawing6.png">
-                                    <Image  Source="Resources/Drawing6.png" Grid.Column="1" Stretch="Uniform" />
+                                    Tag="" x:Name="BFrame6">
+                                    <Image  Source="" Grid.Column="1" Stretch="Uniform" 
+                                                x:Name="Frame6"/>
                                 </local:ImageChooseButton>
                             </Border>
                         </Grid>

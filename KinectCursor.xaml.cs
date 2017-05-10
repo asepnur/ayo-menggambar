@@ -52,10 +52,10 @@ namespace Microsoft.Kinect.Samples.KinectPaint
 				Loaded += (s, e) =>
 					{
 						//Mouse.Capture(this, CaptureMode.SubTree);
-						if (MainWindow.Instance.sensor == null)
+						if (Container.Instance.sensor == null)
 							CompositionTarget.Rendering += (s2, e2) => OnUpdate(null, null);
 						else
-							MainWindow.Instance.sensor.AllFramesReady += OnUpdate;
+							Container.Instance.sensor.AllFramesReady += OnUpdate;
 					};
 			}
         }
@@ -174,9 +174,9 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         /// <returns>The cursor's position, in the coordinate space of the element</returns>
         public Point GetPosition(Visual visual)
         {
-            if (visual == MainWindow.Instance) return CursorPosition;
+            if (visual == Container.Instance) return CursorPosition;
 
-            return MainWindow.Instance.TransformToDescendant(visual).Transform(CursorPosition);
+            return Container.Instance.TransformToDescendant(visual).Transform(CursorPosition);
         }
 
         /// <summary>
@@ -186,9 +186,9 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         /// <returns>The cursor's previousposition, in the coordinate space of the element</returns>
         public Point GetPreviousPosition(Visual visual)
         {
-            if (visual == MainWindow.Instance) return CursorPosition;
+            if (visual == Container.Instance) return CursorPosition;
 
-            return MainWindow.Instance.TransformToDescendant(visual).Transform(PreviousCursorPosition);
+            return Container.Instance.TransformToDescendant(visual).Transform(PreviousCursorPosition);
         }
 
         #endregion
@@ -240,7 +240,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         void OnUpdate(object sender, AllFramesReadyEventArgs e)
         {
             // KINECT Add code to get joint data and smooth it
-            if (Application.Current.MainWindow == null || MainWindow.Instance == null) return;           
+            if (Application.Current.MainWindow == null || Container.Instance == null) return;           
 
 
             Nui.Skeleton skeleton = null;
@@ -287,7 +287,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
             if(!Passive)
                 UpdateElementOver();
 
-            if (MainWindow.Instance.sensor == null)
+            if (Container.Instance.sensor == null)
             {
                 // For mouse, see if the right mouse button is down.
                 if (_isPainting)
