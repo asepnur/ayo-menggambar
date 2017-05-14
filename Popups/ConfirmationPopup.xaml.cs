@@ -37,13 +37,15 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         /// <param name="window">Refernece to the main application window</param>
         public ConfirmationPopup(string message, object data, MainWindow window)
         {
+            Picture = "/KinectPaint;component/Resources/save.png";
             Message = message;
             UserData = data;
             _window = window;
             InitializeComponent();
         }
-        public ConfirmationPopup(string message, object data, Menu menu, bool exit)
+        public ConfirmationPopup(string message, object data, Menu menu, bool exit, string picture)
         {
+            Picture = picture;
             Message = message;
             UserData = data;
             _menu = menu;
@@ -56,6 +58,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         /// True if the user pressed OK, false if cancel or if the popup hasn't been addressed by the user yet.
         /// </summary>
         public bool DidConfirm { get; private set; }
+        public string Picture { get; private set; }
 
         /// <summary>
         /// Gets the message to be displayed

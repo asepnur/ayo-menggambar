@@ -163,8 +163,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
 
         public void OnQuit(object sender, RoutedEventArgs args)
         {
-            Console.Write("Masuk");
-            CurrentPopup = new ConfirmationPopup("Keluar tanpa menyimpan?", ActionAwaitingConfirmation.Close, this,true);
+            CurrentPopup = new ConfirmationPopup("\nYakin Ingin Keluar?", ActionAwaitingConfirmation.Close, this,true, "/KinectPaint;component/Resources/exit.png");
         }
     }
 }

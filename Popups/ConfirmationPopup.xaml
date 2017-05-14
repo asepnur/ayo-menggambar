@@ -48,7 +48,7 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             
-            <Image Source="/KinectPaint;component/Resources/save.png"
+            <Image Source="{Binding Picture}"
                    Width="75"
                    Height="75"
                    HorizontalAlignment="Left"

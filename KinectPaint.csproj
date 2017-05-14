@@ -276,6 +276,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\kembali.png" />
+    <Resource Include="Resources\exit.png" />
     <Content Include="Resources\main-bg.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
