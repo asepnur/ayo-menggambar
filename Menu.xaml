@@ -34,9 +34,9 @@
                 </Grid.ColumnDefinitions>
                 <Grid x:Name="ButtonMewarnai"
                       Grid.Column="1"
-                      Grid.Row="1">
-                    <Border Padding="8">
-                        <local:ImageChooseButton Click="FreeDraw"  Background="{x:Null}" BorderThickness="0">
+                      Grid.Row="1" >
+                    <Border Padding="8" >
+                        <local:ImageChooseButton Click="FreeDraw"   BorderThickness="0" Style="{StaticResource ButtonMenuStyle}" >
                             <Image  Source="Resources/gambarbebas.png"  Stretch="Uniform" />
                         </local:ImageChooseButton>
                     </Border>
@@ -45,9 +45,9 @@
                 <Grid x:Name="ButtonMenggambar"
                       Grid.Column="1"
                       Grid.Row="2">
-                    <Border Padding="8">
-                        <local:ImageChooseButton Click="Draw" Background="{x:Null}" BorderThickness="0">
-                            <Image  Source="Resources/menggambar.png"  Stretch="Uniform" />
+                    <Border Padding="8" >
+                        <local:ImageChooseButton Click="Draw"  BorderThickness="0" Style="{StaticResource ButtonMenuStyle}" >
+                            <Image  Source="Resources/menggambar.png"  Stretch="Uniform"  />
                         </local:ImageChooseButton>
                     </Border>
                 </Grid>
@@ -55,16 +55,18 @@
                       Grid.Column="1"
                       Grid.Row="3">
                     <Border Padding="8">
-                        <local:ImageChooseButton Click="Coloring" Background="{x:Null}" BorderThickness="0">
+                        <local:ImageChooseButton Click="Coloring" Style="{StaticResource ButtonMenuStyle}" >
                             <Image  Source="Resources/mewarnai.png"  Stretch="Uniform" />
                         </local:ImageChooseButton>
+                        
                     </Border>
+                    
                 </Grid>
                 <Grid Grid.Column="2"
               x:Name="PART_actionUI">
                     <WrapPanel Style="{StaticResource RightButtonPanelStyle}"
                        Margin="350,-20,0,0">
-                        <local:KinectPaintButton Click="OnQuit"
+                        <local:KinectPaintButton  
                                          Tag="quit"
                                          Style="{StaticResource CloseButtonStyle}">
                             <Image Source="/KinectPaint;component/Resources/close.png"

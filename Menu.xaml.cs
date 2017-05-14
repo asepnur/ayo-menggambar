@@ -127,13 +127,13 @@ namespace Microsoft.Kinect.Samples.KinectPaint
             MainWindow.Instance.SetTutorialActive(true);
             Tutorial.Instance.Visibility = Visibility.Visible;
         }
-        public enum ActionAwaitingConfirmation
+        
+        public void OnQuit(object sender, RoutedEventArgs args)
         {
-               Close
+            
         }
-        private void OnQuit(object sender, RoutedEventArgs args)
-        {
-            Container.Instance.Close();
-        }
+
+
+
     }
 }
