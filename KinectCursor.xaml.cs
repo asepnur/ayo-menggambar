@@ -14,10 +14,6 @@ using System.Diagnostics;
 using Coding4Fun.Kinect.Wpf;
 
 using Nui = Microsoft.Kinect;
-using System.Resources;
-using System.IO;
-using System.Media;
-using System.Text.RegularExpressions;
 
 namespace Microsoft.Kinect.Samples.KinectPaint
 {
@@ -150,6 +146,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
             myPlayer.Open(new System.Uri("Resources/button_start.wav", UriKind.RelativeOrAbsolute));
             myPlayer.Position = TimeSpan.Zero;
             myPlayer.Play();
+ 
         }
 
         /// <summary>
@@ -378,7 +375,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
             myPlayer.Open(new System.Uri("Resources/button_end.wav", UriKind.RelativeOrAbsolute));
             myPlayer.Position = TimeSpan.Zero;
             myPlayer.Play();
-            
+
             EndHover();
             _isHovering = false;
         }
