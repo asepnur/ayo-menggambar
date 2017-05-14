@@ -29,7 +29,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
     public partial class Menu : UserControl
     {
         public static bool multiple;
-
+        bool _imageUnsaved = false;
         public static Menu Instance { get; private set; }
         public Menu()
         {
@@ -127,13 +127,44 @@ namespace Microsoft.Kinect.Samples.KinectPaint
             MainWindow.Instance.SetTutorialActive(true);
             Tutorial.Instance.Visibility = Visibility.Visible;
         }
-        
-        public void OnQuit(object sender, RoutedEventArgs args)
+        #region CurrentPopup
+
+        /// <summary>
+        /// The current popup (load dialog, or confirmation dialog, or tutorial)
+        /// </summary>
+        public object CurrentPopup
         {
-            
+            get { return _currentPopup; }
+            set
+            {
+                _currentPopup = value;
+
+                PART_PopupDisplay.Content = _currentPopup;
+            }
+        }
+        private object _currentPopup;
+
+        #endregion
+        public void ConfirmationFinished()
+        {
+            ConfirmationPopup popup = (ConfirmationPopup)CurrentPopup;
+
+            CurrentPopup = null;
+            ActionAwaitingConfirmation action = (ActionAwaitingConfirmation)popup.UserData;
+
+            switch (action)
+            {
+                case ActionAwaitingConfirmation.Close:
+                    if (popup.DidConfirm)
+                        Container.Instance.Close();
+                    break;
+            }
         }
 
-
-
+        public void OnQuit(object sender, RoutedEventArgs args)
+        {
+            Console.Write("Masuk");
+            CurrentPopup = new ConfirmationPopup("Keluar tanpa menyimpan?", ActionAwaitingConfirmation.Close, this,true);
+        }
     }
 }

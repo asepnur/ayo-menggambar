@@ -27,6 +27,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
     public partial class ConfirmationPopup : UserControl
     {
         MainWindow _window;
+        Menu _menu;
 
         /// <summary>
         /// Constructor
@@ -39,10 +40,16 @@ namespace Microsoft.Kinect.Samples.KinectPaint
             Message = message;
             UserData = data;
             _window = window;
-
             InitializeComponent();
         }
-
+        public ConfirmationPopup(string message, object data, Menu menu, bool exit)
+        {
+            Message = message;
+            UserData = data;
+            _menu = menu;
+            Exit = exit;
+            InitializeComponent();
+        }
         #region Properties
 
         /// <summary>
@@ -59,23 +66,40 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         /// Gets the custom data that was passed with the constructor
         /// </summary>
         public object UserData { get; private set; }
+        public object Exit { get; private set; }
 
         #endregion
 
         #region Button Handlers
 
         // Called when the user presses OK
-        protected void OnOk(object sender, RoutedEventArgs args)
+        public void OnOk(object sender, RoutedEventArgs args)
         {
             DidConfirm = true;
-            _window.ConfirmationFinished();
+            try
+            {
+                if ((bool)Exit)
+                    _menu.ConfirmationFinished();
+            }
+            catch (Exception)
+            {
+                _window.ConfirmationFinished();
+            }
         }
 
         // Called when the user presses Cancel
         protected void OnCancel(object sender, RoutedEventArgs args)
         {
             DidConfirm = false;
-            _window.ConfirmationFinished();
+            try
+            {
+                if ((bool)Exit)
+                    _menu.ConfirmationFinished();
+            }
+            catch (Exception)
+            {
+                _window.ConfirmationFinished();
+            }
         }
 
         #endregion

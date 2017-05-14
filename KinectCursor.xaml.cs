@@ -140,7 +140,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         {
             Debug.Assert(!_isHovering);
 
-            WaitCursor.Visibility = Visibility.Visible;
+            WaitCursor.Visibility = Visibility.Visible; 
             DrawCursor.Visibility = Visibility.Collapsed;
 
             _hoverStoryboard.Begin();
