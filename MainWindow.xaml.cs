@@ -457,7 +457,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         }
 
         // Called when the user presses the 'Quit' button
-        private void OnQuit(object sender, RoutedEventArgs args)
+        public void OnQuit(object sender, RoutedEventArgs args)
         {
             if (_imageUnsaved)
                 CurrentPopup = new ConfirmationPopup("Keluar tanpa menyimpan?", ActionAwaitingConfirmation.Close, this);

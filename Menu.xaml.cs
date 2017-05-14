@@ -34,6 +34,8 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         public Menu()
         {
             InitializeComponent();
+
+            Debug.Assert(Instance == null);
             Instance = this;
         }
         
@@ -124,6 +126,14 @@ namespace Microsoft.Kinect.Samples.KinectPaint
             Container.Instance.MainWindow.PART_LoadedBackground.Source = null;
             MainWindow.Instance.SetTutorialActive(true);
             Tutorial.Instance.Visibility = Visibility.Visible;
+        }
+        public enum ActionAwaitingConfirmation
+        {
+               Close
+        }
+        private void OnQuit(object sender, RoutedEventArgs args)
+        {
+            Container.Instance.Close();
         }
     }
 }
