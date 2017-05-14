@@ -36,7 +36,7 @@
                       Grid.Column="1"
                       Grid.Row="1">
                     <Border Padding="8">
-                        <local:ImageChooseButton Click="FreeDraw" Background="{x:Null}" BorderThickness="0">
+                        <local:ImageChooseButton Click="FreeDraw"  Background="{x:Null}" BorderThickness="0">
                             <Image  Source="Resources/gambarbebas.png"  Stretch="Uniform" />
                         </local:ImageChooseButton>
                     </Border>

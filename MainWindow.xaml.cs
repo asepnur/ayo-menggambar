@@ -28,7 +28,8 @@ namespace Microsoft.Kinect.Samples.KinectPaint
     {
         Close,
         New,
-        Load
+        Load,
+        Back
     }
 
     /// <summary>
@@ -122,6 +123,22 @@ namespace Microsoft.Kinect.Samples.KinectPaint
                 case ActionAwaitingConfirmation.Close:
                     if (popup.DidConfirm)
                         Container.Instance.Close();
+                    break;
+                case ActionAwaitingConfirmation.Back:
+                    if (popup.DidConfirm) {
+                        if (Menu.multiple)
+                        {
+                            MainWindow.Instance.SetTutorialActive(true);
+                            Tutorial.Instance.Visibility = Visibility.Visible;
+                            Menu.multiple = false;
+                            CreatePaintableImage();
+                        }
+                        else {
+                            Container.Instance.Menu.Visibility = Visibility.Visible;
+                            Container.Instance.MainWindow.Visibility = Visibility.Hidden;
+                            CreatePaintableImage();
+                        }
+                    }
                     break;
             }
         }
@@ -419,6 +436,15 @@ namespace Microsoft.Kinect.Samples.KinectPaint
             // Animate the "Saved" message so the user knows it worked
             DoubleAnimation saveMessageAnimator = new DoubleAnimation(1.0, 0.0, Duration.Automatic, FillBehavior.Stop);
             PART_SaveMessage.BeginAnimation(OpacityProperty, saveMessageAnimator);
+        }
+        private void OnBack(Object sender, RoutedEventArgs args) {
+            if (_imageUnsaved) { 
+                CurrentPopup = new ConfirmationPopup("Gambar yang belum disimpan akan hilang, Kembali ke Menu?", ActionAwaitingConfirmation.Back, this);
+            }
+            else
+            {
+                _imageUnsaved = false;
+            }
         }
 
         // Called when the user presses the 'Load' button

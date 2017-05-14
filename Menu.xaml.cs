@@ -28,15 +28,18 @@ namespace Microsoft.Kinect.Samples.KinectPaint
     /// </summary>
     public partial class Menu : UserControl
     {
+        public static bool multiple;
+
         public static Menu Instance { get; private set; }
         public Menu()
         {
             InitializeComponent();
             Instance = this;
         }
-
+        
         private void Draw(object sender, RoutedEventArgs e)
         {
+            multiple = false;    
             const string uri1 = @"/KinectPaint;component/Resources/Drawing-1.png";
             const string uri2 = @"/KinectPaint;component/Resources/Drawing-2.png";
             const string uri3 = @"/KinectPaint;component/Resources/Drawing-3.png";
@@ -74,6 +77,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         }
         private void FreeDraw(object sender, RoutedEventArgs e)
         {
+            multiple = false;
             Container.Instance.Menu.Visibility = Visibility.Hidden;
             Container.Instance.MainWindow.Visibility = Visibility.Visible;
             Container.Instance.MainWindow.SetTutorialActive(false);
@@ -85,6 +89,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
 
         private void Coloring(object sender, RoutedEventArgs e)
         {
+            multiple = false;
             const string uri1 = @"/KinectPaint;component/Resources/Coloring-1.png";
             const string uri2 = @"/KinectPaint;component/Resources/Coloring-2.png";
             const string uri3 = @"/KinectPaint;component/Resources/Coloring-3.png";
