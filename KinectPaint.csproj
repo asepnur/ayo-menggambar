@@ -193,6 +193,8 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\mute.png" />
+    <Resource Include="Resources\sound.png" />
     <Resource Include="Resources\mewarnai.png" />
     <Resource Include="Resources\menggambar.png" />
     <Resource Include="Resources\pencil_down.png" />

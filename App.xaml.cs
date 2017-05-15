@@ -16,13 +16,14 @@ namespace Microsoft.Kinect.Samples.KinectPaint
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
+
     public partial class App : Application
     {
         private const int TIME_SPLASH = 1500;
         protected override void OnStartup(StartupEventArgs e)
         {
-            SoundPlayer back = new SoundPlayer("Resources/backsound.wav");
-            back.PlayLooping();
+            /*SoundPlayer back = new SoundPlayer("Resources/backsound.wav");
+            back.PlayLooping();*/
 
             //SplashScreen splash = new SplashScreen();
             //splash.Show();

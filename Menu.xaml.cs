@@ -14,6 +14,7 @@ using System.IO;
 using System.Windows.Media.Animation;
 using System.Globalization;
 using System.Diagnostics;
+using System.Media;
 
 using Microsoft.Kinect;
 
@@ -28,6 +29,8 @@ namespace Microsoft.Kinect.Samples.KinectPaint
     /// </summary>
     public partial class Menu : UserControl
     {
+        SoundPlayer back = new SoundPlayer("Resources/backsound.wav");
+
         public static bool multiple;
         bool _imageUnsaved = false;
         public static Menu Instance { get; private set; }
@@ -132,6 +135,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         /// <summary>
         /// The current popup (load dialog, or confirmation dialog, or tutorial)
         /// </summary>
+
         public object CurrentPopup
         {
             get { return _currentPopup; }
@@ -164,6 +168,25 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         public void OnQuit(object sender, RoutedEventArgs args)
         {
             CurrentPopup = new ConfirmationPopup("\nYakin Ingin Keluar?", ActionAwaitingConfirmation.Close, this,true, "/KinectPaint;component/Resources/exit.png");
+        }
+
+        private void sound(object sender, RoutedEventArgs e)
+        {
+            Mute.Visibility = Visibility.Collapsed;
+            back.PlayLooping();
+            Sound.Visibility = Visibility.Visible;
+        }
+
+        private void Mulai(object sender, EventArgs e)
+        {
+            back.PlayLooping();
+        }
+
+        private void mute(object sender, RoutedEventArgs e)
+        {
+            Sound.Visibility = Visibility.Collapsed;
+            back.Stop();
+            Mute.Visibility = Visibility.Visible;
         }
     }
 }
