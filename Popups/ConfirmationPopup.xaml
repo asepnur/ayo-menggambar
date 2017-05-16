@@ -27,14 +27,14 @@
 
         <local:KinectPaintButton Grid.Column="1"
                                  Grid.Row="1"
-                                 Content="ok"
+                                 Content="Ya"
                                  Click="OnOk"
                                  HorizontalAlignment="Left"
                                  Style="{StaticResource MetroButtonStyle}" />
 
         <local:KinectPaintButton Grid.Column="3"
                                  Grid.Row="1"
-                                 Content="cancel"
+                                 Content="Tidak"
                                  Click="OnCancel"
                                  HorizontalAlignment="Right"
                                  Style="{StaticResource MetroButtonStyle}" />
