@@ -219,7 +219,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Border CornerRadius="0" Background="{TemplateBinding Background}" BorderBrush="Black" BorderThickness="0">
+                    <Border CornerRadius="25" Background="{TemplateBinding Background}" BorderBrush="Black" BorderThickness="0">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
                     <ControlTemplate.Triggers>
@@ -235,42 +235,15 @@
     <Style x:Key="ButtonIcon"
            TargetType="{x:Type Button}">
         <Setter Property="Width"
-                Value="60" />
+                Value="40" />
         <Setter Property="Height"
-                Value="60" />
+                Value="40" />
         <Setter Property="VerticalAlignment"
                 Value="Top" />
         <Setter Property="Margin"
-                Value="-20,10,0,0" ></Setter>
+                Value="-20,30,0,0" ></Setter>
         <Setter Property="Padding"
                 Value="10,10,10,10" ></Setter>
-        <Setter Property="Background" Value="{x:Null}"/>
-
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Border CornerRadius="0" Background="{TemplateBinding Background}" BorderBrush="Black" BorderThickness="0">
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background"  Value="#e6ffff"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    <Style x:Key="ButtonIcon2"
-           TargetType="{x:Type Button}">
-        <Setter Property="Width"
-                Value="60" />
-        <Setter Property="Height"
-                Value="60" />
-        <Setter Property="VerticalAlignment"
-                Value="Top" />
-        <Setter Property="Margin"
-                Value="60,10,0,0" ></Setter>
         <Setter Property="Background" Value="{x:Null}"/>
 
         <Setter Property="Template">
