@@ -7,7 +7,7 @@
     <sys:Double x:Key="ToolWidth">120.0</sys:Double>
 
     <SolidColorBrush x:Key="PrimaryBrush"
-                     Color="#FF0C61B4" />
+                     Color="#67C6F0" />
 
     <SolidColorBrush x:Key="SecondaryBrush"
                      Color="Black" />
@@ -122,13 +122,19 @@
     </DataTemplate>
 
     <Style x:Key="ConfirmationPopUpGridStyle"
-           TargetType="{x:Type Grid}">
+           TargetType="{x:Type Border}">
         <Setter Property="Background"
                 Value="{StaticResource PrimaryBrush}" />
         <Setter Property="Width"
                 Value="570" />
         <Setter Property="Height"
                 Value="275" />
+        <Setter Property="CornerRadius"
+                Value="20" />
+        <Setter Property="BorderBrush"
+                Value="#00BFF3" />
+        <Setter Property="BorderThickness"
+                Value="8pt" />
     </Style>
 
     <Style x:Key="PopupMessageTextStyle"

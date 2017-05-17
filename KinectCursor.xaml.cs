@@ -142,11 +142,15 @@ namespace Microsoft.Kinect.Samples.KinectPaint
             _hoverStoryboard.Begin();
             _isHovering = true;
 
-            MediaPlayer myPlayer = new MediaPlayer();
-            myPlayer.Open(new System.Uri("Resources/button_start.wav", UriKind.RelativeOrAbsolute));
-            myPlayer.Position = TimeSpan.Zero;
-            myPlayer.Play();
- 
+            if (MainWindow.Instance.MusicStatus==true)
+            {
+                MediaPlayer myPlayer = new MediaPlayer();
+                myPlayer.Open(new System.Uri("Resources/button_start.wav", UriKind.RelativeOrAbsolute));
+                myPlayer.Position = TimeSpan.Zero;
+                myPlayer.Play();
+
+            }
+
         }
 
         /// <summary>
@@ -371,10 +375,13 @@ namespace Microsoft.Kinect.Samples.KinectPaint
             if (HoverFinished != null)
                 HoverFinished(this, new EventArgs());
 
-            MediaPlayer myPlayer = new MediaPlayer();
-            myPlayer.Open(new System.Uri("Resources/button_end.wav", UriKind.RelativeOrAbsolute));
-            myPlayer.Position = TimeSpan.Zero;
-            myPlayer.Play();
+            if (MainWindow.Instance.MusicStatus == true)
+            {
+                MediaPlayer myPlayer = new MediaPlayer();
+                myPlayer.Open(new System.Uri("Resources/button_end.wav", UriKind.RelativeOrAbsolute));
+                myPlayer.Position = TimeSpan.Zero;
+                myPlayer.Play();
+            }
 
             EndHover();
             _isHovering = false;

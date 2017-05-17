@@ -40,6 +40,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         /// <summary>
         /// Gets the instance of the main window, assuming it has been created
         /// </summary>
+        public bool MusicStatus = true;
         public static MainWindow Instance { get; private set; }
 
         #region Data
