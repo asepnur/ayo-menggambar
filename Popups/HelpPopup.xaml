@@ -38,17 +38,16 @@
                 <Grid Grid.Column="1"
               VerticalAlignment="Top"
               Grid.ColumnSpan="3"
-              Margin="0,32,0,0">
+              Margin="0,25,0,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
 
                     <Image Source="{Binding Picture}"
-                   Width="75"
-                   Height="75"
-                   HorizontalAlignment="Left"
-                   d:LayoutOverrides="Width" VerticalAlignment="Top" Margin="0" />
+                   Width="50"
+                   Height="50"
+                   HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-24,0,0,0" Grid.ColumnSpan="2" />
 
                     <TextBlock Text="{Binding Message}"
                        Style="{StaticResource PopupMessageTextStyle}"
