@@ -71,8 +71,8 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         {
             DidConfirm = true;
             if ((bool)Exit)
-                _menu.ConfirmationFinished();
-            _menu.ConfirmationFinished();
+                _menu.ConfirmationFinishedHelp();
+            _menu.ConfirmationFinishedHelp();
             
         }
 

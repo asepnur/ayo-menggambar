@@ -182,6 +182,27 @@ namespace Microsoft.Kinect.Samples.KinectPaint
                     break;
             }
         }
+        public void ConfirmationFinishedHelp()
+        {
+            HelpPopup popup = (HelpPopup)HelpPopup;
+
+            HelpPopup = null;
+            ActionAwaitingConfirmation action = (ActionAwaitingConfirmation)popup.UserData;
+
+            switch (action)
+            {
+                case ActionAwaitingConfirmation.Close:
+                    if (popup.DidConfirm)
+                        Container.Instance.Close();
+                    break;
+                case ActionAwaitingConfirmation.Contibute:
+                    if (popup.DidConfirm)
+                    {
+
+                    }
+                    break;
+            }
+        }
 
         public void OnQuit(object sender, RoutedEventArgs args)
         {
@@ -214,7 +235,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         }
         private void OnHelp(object sender, RoutedEventArgs e)
         {
-            HelpPopup = new HelpPopup("Risal Falah\nMuhammad Sabiq\nKhairil Azmi \nAsep Nur Muhammad?", ActionAwaitingConfirmation.Contibute, this, false, "/KinectPaint;component/Resources/Contributor.png");
+            HelpPopup = new HelpPopup("1. Satu Tangan untuk pergerakan \n2. Dua tangan untuk menciptakan garis atau warna \n3. Fitur menggambar bebas untuk menggambar bebas ", ActionAwaitingConfirmation.Contibute, this, false, "/KinectPaint;component/Resources/help.png");
         }
     }
 }

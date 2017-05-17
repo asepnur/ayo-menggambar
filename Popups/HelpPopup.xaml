@@ -27,19 +27,13 @@
                     <ColumnDefinition Width="50" />
                 </Grid.ColumnDefinitions>
 
-                <local:KinectPaintButton Grid.Column="1"
+                <local:KinectPaintButton Grid.Column="3"
                                  Grid.Row="1"
-                                 Content="Ya"
+                                 Content="Tutup"
                                  Click="OnOk"
                                  HorizontalAlignment="Left"
                                  Style="{StaticResource MetroButtonStyle}" />
-                <local:KinectPaintButton Grid.Column="3"
 
-                                 Grid.Row="1"
-                                 Content="Tidak"
-                                 Click="OnCancel"
-                                 HorizontalAlignment="Right"
-                                 Style="{StaticResource MetroButtonStyle}" />
 
                 <Grid Grid.Column="1"
               VerticalAlignment="Top"

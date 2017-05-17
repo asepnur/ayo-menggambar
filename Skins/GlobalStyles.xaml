@@ -331,7 +331,7 @@
                      TargetType="{x:Type Button}">
         <Border BorderThickness="{TemplateBinding BorderThickness}"
                 BorderBrush="{TemplateBinding BorderBrush}"
-                Background="{TemplateBinding Background}">
+                Background="{TemplateBinding Background}" CornerRadius="3">
             <ContentPresenter HorizontalAlignment="Center"
                               VerticalAlignment="Center"
                               Margin="0,0,0,6" />
@@ -347,13 +347,13 @@
         <Setter Property="FontSize"
                 Value="20" />
         <Setter Property="Background"
-                Value="#00000000" />
+                Value="#00BFF3" />
         <Setter Property="BorderBrush"
                 Value="{StaticResource SecondaryBrush}" />
         <Setter Property="Foreground"
                 Value="{StaticResource SecondaryBrush}" />
         <Setter Property="BorderThickness"
-                Value="3" />
+                Value="2" />
         <Setter Property="Template"
                 Value="{StaticResource MetroButtonTemplate}" />
         <Setter Property="FontFamily"
