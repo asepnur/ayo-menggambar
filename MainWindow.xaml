@@ -96,7 +96,8 @@
                     <Image Source="/KinectPaint;component/Resources/close.png"
                            Style="{StaticResource ButtonIconStyle}"
                            Width="30"
-                           Height="30" />
+                           Height="30" 
+                           Margin="10,0,0,0"/>
                 </local:KinectPaintButton>
                 
             </WrapPanel>
