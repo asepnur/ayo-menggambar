@@ -234,7 +234,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         }
         private void OnHelp(object sender, RoutedEventArgs e)
         {
-            HelpPopup = new HelpPopup("1. Satu Tangan untuk pergerakan dan Dua tangan untuk menciptakan garis atau warna \n3. Fitur menggambar bebas untuk menggambar bebas\n4. Fitur Menggambar untuk  Menggambar dengan pola \n5. Mewarnai untuk Mewarnai berdasarkan pola", ActionAwaitingConfirmation.Contibute, this, false, "/KinectPaint;component/Resources/help.png");
+            HelpPopup = new HelpPopup("\nBantuan \n1. Satu Tangan untuk pergerakan dan Dua tangan untuk menciptakan garis atau warna \n2. Menggambar bebas : Menggambar bebas\n3. Menggambar : Menggambar dengan pola \n4. Mewarnai : Mewarnai berdasarkan pola", ActionAwaitingConfirmation.Contibute, this, false, "/KinectPaint;component/Resources/help.png");
         }
     }
 }

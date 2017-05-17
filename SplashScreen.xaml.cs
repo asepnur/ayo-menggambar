@@ -24,7 +24,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
     /// <summary>
     /// The main application window
     /// </summary>
-    public partial class SplashScreen : Window
+    public partial class SplashScreen : UserControl
     {
         /// <summary>
         /// Gets the instance of the main window, assuming it has been created

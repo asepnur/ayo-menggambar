@@ -18,6 +18,8 @@ using Microsoft.Kinect;
 
 using Coding4Fun.Kinect.Wpf;
 using System.Text.RegularExpressions;
+using System.Timers;
+using System.Windows.Threading;
 
 namespace Microsoft.Kinect.Samples.KinectPaint
 {
@@ -35,6 +37,19 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         {    
             InitializeComponent();
             Instance = this;
+            System.Timers.Timer aTimer = new System.Timers.Timer();
+            aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+            aTimer.Interval = 3000;
+            aTimer.Enabled = true;
+        }
+
+        // Specify what you want to happen when the Elapsed event is raised.
+        private static void OnTimedEvent(object source, ElapsedEventArgs e)
+        {
+            Instance.Dispatcher.Invoke(new Action(() => {
+                Instance.Menu.Visibility = Visibility.Visible;
+                Instance.SplashScreen.Visibility = Visibility.Hidden;
+            }), DispatcherPriority.ContextIdle);
         }
 
         public KinectSensor sensor { get; private set; }

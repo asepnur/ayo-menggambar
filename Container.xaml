@@ -16,9 +16,12 @@
         d:DesignWidth="1280"
         d:DesignHeight="720">
     <Grid>
+        <local:SplashScreen d:IsHidden="True"
+                      x:Name="SplashScreen"
+                      Visibility="Visible"/>
         <local:Menu d:IsHidden="True"
                       x:Name="Menu"
-                      Visibility="Visible"/>
+                      Visibility="Hidden"/>
         <local:MainWindow d:IsHidden="True"
                       x:Name="MainWindow"
                       Visibility="Hidden" />
