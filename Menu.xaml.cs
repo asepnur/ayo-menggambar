@@ -34,6 +34,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         public static bool multiple;
         bool _imageUnsaved = false;
         public static Menu Instance { get; private set; }
+        
         public Menu()
         {
             InitializeComponent();
@@ -179,6 +180,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         {
             Mute.Visibility = Visibility.Collapsed;
             back.PlayLooping();
+            MainWindow.Instance.MusicStatus = true;
             Sound.Visibility = Visibility.Visible;
         }
 
@@ -191,6 +193,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         {
             Sound.Visibility = Visibility.Collapsed;
             back.Stop();
+            MainWindow.Instance.MusicStatus = false;
             Mute.Visibility = Visibility.Visible;
         }
         private void OnContibute(object sender, RoutedEventArgs e)
