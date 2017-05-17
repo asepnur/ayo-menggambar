@@ -144,7 +144,7 @@
         <Setter Property="FontFamily"
                 Value="Segoe WP Light" />
         <Setter Property="FontSize"
-                Value="32" />
+                Value="20" />
         <Setter Property="VerticalAlignment"
                 Value="Top" />
         <Setter Property="HorizontalAlignment"
@@ -341,11 +341,11 @@
     <Style x:Key="MetroButtonStyle"
            TargetType="{x:Type Button}">
         <Setter Property="Width"
-                Value="140" />
+                Value="100" />
         <Setter Property="Height"
-                Value="55" />
+                Value="40" />
         <Setter Property="FontSize"
-                Value="28" />
+                Value="20" />
         <Setter Property="Background"
                 Value="#00000000" />
         <Setter Property="BorderBrush"

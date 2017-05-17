@@ -148,7 +148,18 @@ namespace Microsoft.Kinect.Samples.KinectPaint
             }
         }
         private object _currentPopup;
-        private HelpPopup helpPopup;
+        private object _helpPopup;
+        public object HelpPopup
+        {
+            get { return _helpPopup; }
+            set
+            {
+                _helpPopup = value;
+
+                PART_HelpDisplay.Content = _helpPopup;
+            }
+        }
+    
 
         #endregion
         public void ConfirmationFinished()
@@ -203,7 +214,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         }
         private void OnHelp(object sender, RoutedEventArgs e)
         {
-            helpPopup = new HelpPopup("Risal Falah\nMuhammad Sabiq\nKhairil Azmi \nAsep Nur Muhammad?", ActionAwaitingConfirmation.Contibute, this, false, "/KinectPaint;component/Resources/Contributor.png");
+            HelpPopup = new HelpPopup("Risal Falah\nMuhammad Sabiq\nKhairil Azmi \nAsep Nur Muhammad?", ActionAwaitingConfirmation.Contibute, this, false, "/KinectPaint;component/Resources/Contributor.png");
         }
     }
 }

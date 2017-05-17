@@ -26,7 +26,6 @@ namespace Microsoft.Kinect.Samples.KinectPaint
     /// </summary>
     public partial class HelpPopup : UserControl
     {
-        MainWindow _window;
         Menu _menu;
 
         /// <summary>
@@ -34,7 +33,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         /// </summary>
         /// <param name="message">The message being confirmed</param>
         /// <param name="data">Caller-defined data</param>
-        /// <param name="window">Refernece to the main application window</param>
+        /// <param name="_menu">Refernece to the main application window</param>
         public HelpPopup(string message, object data, Menu menu, bool exit, string picture)
         {
             Picture = picture;
@@ -71,16 +70,10 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         public void OnOk(object sender, RoutedEventArgs args)
         {
             DidConfirm = true;
-            try
-            {
-                if ((bool)Exit)
-                    _menu.ConfirmationFinished();
+            if ((bool)Exit)
                 _menu.ConfirmationFinished();
-            }
-            catch (Exception)
-            {
-                _window.ConfirmationFinished();
-            }
+            _menu.ConfirmationFinished();
+            
         }
 
         // Called when the user presses Cancel
@@ -94,7 +87,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
             }
             catch (Exception)
             {
-                _window.ConfirmationFinished();
+                _menu.ConfirmationFinished();
             }
         }
 

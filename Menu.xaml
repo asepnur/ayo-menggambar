@@ -119,6 +119,12 @@
                         Style="{StaticResource PopupContentControlStyle}"
                         Background="{x:Null}"
                         d:IsHidden="True" />
+                <ContentControl x:Name="PART_HelpDisplay"
+                        Grid.ColumnSpan="4"
+                        Grid.RowSpan="6"
+                        Style="{StaticResource PopupContentControlStyle}"
+                        Background="{x:Null}"
+                        d:IsHidden="True" />
             </Grid>
         </Grid>
     </Grid>

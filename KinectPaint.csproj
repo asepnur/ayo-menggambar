@@ -57,6 +57,9 @@
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Coding4Fun.Kinect.Wpf, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>Dependencies\Coding4Fun.Kinect.Wpf.dll</HintPath>
@@ -239,6 +242,7 @@
     <Resource Include="Resources\eraser_down.png" />
     <Resource Include="Resources\gambarbebas.png" />
     <Resource Include="Resources\back_menu.png" />
+    <Resource Include="favicon.ico" />
     <Content Include="Resources\backsound.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
