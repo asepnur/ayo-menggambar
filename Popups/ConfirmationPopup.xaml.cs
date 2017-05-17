@@ -83,6 +83,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
             {
                 if ((bool)Exit)
                     _menu.ConfirmationFinished();
+                _menu.ConfirmationFinished();
             }
             catch (Exception)
             {

@@ -163,6 +163,11 @@ namespace Microsoft.Kinect.Samples.KinectPaint
                     if (popup.DidConfirm)
                         Container.Instance.Close();
                     break;
+                case ActionAwaitingConfirmation.Contibute:
+                    if (popup.DidConfirm) {
+
+                    }
+                    break;
             }
         }
 
@@ -190,6 +195,10 @@ namespace Microsoft.Kinect.Samples.KinectPaint
             back.Stop();
             MainWindow.Instance.MusicStatus = false;
             Mute.Visibility = Visibility.Visible;
+        }
+        private void OnContibute(object sender, RoutedEventArgs e)
+        {
+            CurrentPopup = new ConfirmationPopup("Risal Falah\nMuhammad Sabiq\nKhairil Azmi \nAsep Nur Muhammad?", ActionAwaitingConfirmation.Contibute, this, false, "/KinectPaint;component/Resources/Contributor.png");
         }
     }
 }

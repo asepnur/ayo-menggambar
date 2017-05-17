@@ -279,6 +279,7 @@
     </Resource>
     <Resource Include="Resources\kembali.png" />
     <Resource Include="Resources\exit.png" />
+    <Resource Include="Resources\contributor.png" />
     <Content Include="Resources\main-bg.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
