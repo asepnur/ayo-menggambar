@@ -37,7 +37,6 @@ namespace Microsoft.Kinect.Samples.KinectPaint
 
         protected void Choose(object sender, RoutedEventArgs args)
         {
-            Menu.multiple = true;
             string uri = ((Button)sender).Tag.ToString();
             // Hide window and add show selected picture
             this.Visibility = Visibility.Collapsed;

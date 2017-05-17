@@ -31,7 +31,6 @@ namespace Microsoft.Kinect.Samples.KinectPaint
     {
         SoundPlayer back = new SoundPlayer("Resources/backsound.wav");
 
-        public static bool multiple;
         bool _imageUnsaved = false;
         public static Menu Instance { get; private set; }
         
@@ -45,7 +44,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         
         private void Draw(object sender, RoutedEventArgs e)
         {
-            multiple = false;    
+            MainWindow.Instance.CreatePaintableImage();
             const string uri1 = @"/KinectPaint;component/Resources/Drawing-1.png";
             const string uri2 = @"/KinectPaint;component/Resources/Drawing-2.png";
             const string uri3 = @"/KinectPaint;component/Resources/Drawing-3.png";
@@ -83,7 +82,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         }
         private void FreeDraw(object sender, RoutedEventArgs e)
         {
-            multiple = false;
+            MainWindow.Instance.CreatePaintableImage();
             Container.Instance.Menu.Visibility = Visibility.Hidden;
             Container.Instance.MainWindow.Visibility = Visibility.Visible;
             Container.Instance.MainWindow.SetTutorialActive(false);
@@ -95,7 +94,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
 
         private void Coloring(object sender, RoutedEventArgs e)
         {
-            multiple = false;
+            MainWindow.Instance.CreatePaintableImage();
             const string uri1 = @"/KinectPaint;component/Resources/Coloring-1.png";
             const string uri2 = @"/KinectPaint;component/Resources/Coloring-2.png";
             const string uri3 = @"/KinectPaint;component/Resources/Coloring-3.png";
@@ -206,7 +205,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
 
         public void OnQuit(object sender, RoutedEventArgs args)
         {
-            CurrentPopup = new ConfirmationPopup("\nYakin Ingin Keluar?", ActionAwaitingConfirmation.Close, this,true, "/KinectPaint;component/Resources/exit.png");
+            CurrentPopup = new ConfirmationPopup("\nYakin kamu ingin keluar?", ActionAwaitingConfirmation.Close, this,true, "/KinectPaint;component/Resources/exit.png");
         }
 
         private void sound(object sender, RoutedEventArgs e)
@@ -231,7 +230,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         }
         private void OnContibute(object sender, RoutedEventArgs e)
         {
-            CurrentPopup = new ConfirmationPopup("Risal Falah\nMuhammad Sabiq\nKhairil Azmi \nAsep Nur Muhammad?", ActionAwaitingConfirmation.Contibute, this, false, "/KinectPaint;component/Resources/Contributor.png");
+            HelpPopup = new HelpPopup("\nKontributor : \nRisal Falah \nAsep Nur Muhammad\nM Sabiq Rahmatullah\nKhairil Azmi Ashari", ActionAwaitingConfirmation.Contibute, this, false, "/KinectPaint;component/Resources/Contributor.png");
         }
         private void OnHelp(object sender, RoutedEventArgs e)
         {

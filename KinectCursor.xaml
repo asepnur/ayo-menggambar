@@ -112,13 +112,13 @@
                   x:Name="DrawCursor">
                 <Path Fill="{StaticResource DrawingCursorHandShadowBrush}"
                       Style="{StaticResource DrawingCursorHandStyle}"
-                      OpacityMask="{x:Null}">
+                      OpacityMask="{x:Null}" Height="Auto" Margin="23.484,24.155,9.61,16.593" Stretch="Fill" Width="Auto">
                     <Path.Effect>
                         <BlurEffect Radius="11" />
                     </Path.Effect>
                 </Path>
 
-                <Path Style="{StaticResource DrawingCursorHandStyle}">
+                <Path Style="{StaticResource DrawingCursorHandStyle}" Height="Auto" Margin="23.303,25.217,10,16.608" Stretch="Fill" Width="Auto">
                     <Path.OpacityMask>
                         <RadialGradientBrush GradientOrigin="0.696,0.7">
                             <GradientStop Color="#A9000000"
@@ -130,7 +130,7 @@
                 </Path>
 
                 <Ellipse Style="{StaticResource DrawingCursorCenterPointStyle}"
-                         x:Name="PART_TEMPO" />
+                         x:Name="PART_TEMPO" Height="8" Margin="62,72,28.61,38.985" Width="8" />
             </Grid>
         </Grid>
     </Canvas>

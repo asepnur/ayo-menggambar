@@ -115,7 +115,15 @@ namespace Microsoft.Kinect.Samples.KinectPaint
                     if (popup.DidConfirm)
                     {
                         _imageUnsaved = false;
-                        CreatePaintableImage();
+                        if (Instance.PART_LoadedBackground.Source == null)
+                        {
+                            CreatePaintableImage();
+                        }
+                        else {
+                            MainWindow.Instance.SetTutorialActive(true);
+                            Tutorial.Instance.Visibility = Visibility.Visible;
+                            CreatePaintableImage();
+                        }
                     }
                     break;
                 case ActionAwaitingConfirmation.Load:
@@ -128,18 +136,9 @@ namespace Microsoft.Kinect.Samples.KinectPaint
                     break;
                 case ActionAwaitingConfirmation.Back:
                     if (popup.DidConfirm) {
-                        if (Menu.multiple)
-                        {
-                            MainWindow.Instance.SetTutorialActive(true);
-                            Tutorial.Instance.Visibility = Visibility.Visible;
-                            Menu.multiple = false;
-                            CreatePaintableImage();
-                        }
-                        else {
                             Container.Instance.Menu.Visibility = Visibility.Visible;
                             Container.Instance.MainWindow.Visibility = Visibility.Hidden;
                             CreatePaintableImage();
-                        }
                     }
                     break;
             }
@@ -413,7 +412,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         private void OnNew(object sender, RoutedEventArgs args)
         {
             if (_imageUnsaved)
-                CurrentPopup = new ConfirmationPopup("Gambar yang belum disimpan akan hilang, lanjutkan?", ActionAwaitingConfirmation.New, this);
+                CurrentPopup = new ConfirmationPopup("\nGambar yang belum disimpan akan hilang, lanjutkan?", ActionAwaitingConfirmation.New, this);
             else
             {
                 _imageUnsaved = false;
@@ -441,7 +440,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         }
         private void OnBack(Object sender, RoutedEventArgs args) {
             if (_imageUnsaved) { 
-                CurrentPopup = new ConfirmationPopup("Gambar yang belum disimpan akan hilang, Kembali ke Menu?", ActionAwaitingConfirmation.Back, this);
+                CurrentPopup = new ConfirmationPopup("\nGambar yang belum disimpan akan hilang, Kembali ke menu utama?", ActionAwaitingConfirmation.Back, this);
             }
             else
             {
@@ -453,7 +452,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         private void OnLoad(object sender, RoutedEventArgs args)
         {
             if (_imageUnsaved)
-                CurrentPopup = new ConfirmationPopup("Gambar yang belum disimpan akan hilang, lanjutkan?", ActionAwaitingConfirmation.Load, this);
+                CurrentPopup = new ConfirmationPopup("\nGambar yang belum disimpan akan hilang, lanjutkan?", ActionAwaitingConfirmation.Load, this);
             else
                 CurrentPopup = new LoadPopup(this);
         }
@@ -462,7 +461,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         public void OnQuit(object sender, RoutedEventArgs args)
         {
             if (_imageUnsaved)
-                CurrentPopup = new ConfirmationPopup("Keluar tanpa menyimpan?", ActionAwaitingConfirmation.Close, this);
+                CurrentPopup = new ConfirmationPopup("\nKeluar tanpa menyimpan?", ActionAwaitingConfirmation.Close, this);
             else
                 Container.Instance.Close();
         }
@@ -486,7 +485,7 @@ namespace Microsoft.Kinect.Samples.KinectPaint
             _pastCursorPosition = prev;
         }
 
-        private void CreatePaintableImage()
+        public void CreatePaintableImage()
         {
             LoadedImage = new WriteableBitmap(
                 (int)PART_PaintCanvas.ActualWidth,
