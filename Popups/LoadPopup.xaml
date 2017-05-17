@@ -28,7 +28,7 @@
                                   Style="{StaticResource LoadListBoxStyle}" Grid.Column="1" Grid.ColumnSpan="3" BorderThickness="0" />
 
         <local:KinectPaintButton Grid.Row="1"
-                                 Content="Cancel"
+                                 Content="Tidak"
                                  Click="OnCancel"
                                  Style="{StaticResource MetroButtonStyle}" Grid.Column="2" />
     </Grid>
