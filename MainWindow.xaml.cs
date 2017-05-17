@@ -29,7 +29,8 @@ namespace Microsoft.Kinect.Samples.KinectPaint
         Close,
         New,
         Load,
-        Back
+        Back,
+        Contibute
     }
 
     /// <summary>

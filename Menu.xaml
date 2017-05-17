@@ -60,23 +60,33 @@
                     </Border>
                 </Grid>
                 <Grid x:Name="Sound"
-                      Grid.Column="3"
+                      Grid.Column="0"
                       Grid.Row="4">
                     <WrapPanel Style="{StaticResource RightButtonPanelStyle}"
                        Margin="50,60,0,0">
-                        <local:ImageChooseButton Click="mute" Style="{StaticResource ButtonMenuStyle}" >
+                        <local:ImageChooseButton Click="mute" Style="{StaticResource ButtonIcon}" >
                             <Image  Source="Resources/sound.png"  Stretch="Uniform" Initialized="Mulai" />
                         </local:ImageChooseButton>
                     </WrapPanel>
                 </Grid>
                 <Grid x:Name="Mute"
-                      Grid.Column="3"
+                      Grid.Column="0"
                       Grid.Row="4"
                       Visibility="Collapsed">
                     <WrapPanel Style="{StaticResource RightButtonPanelStyle}"
                        Margin="50,60,0,0">
-                        <local:ImageChooseButton Click="sound" Style="{StaticResource ButtonMenuStyle}" >
+                        <local:ImageChooseButton Click="sound" Style="{StaticResource ButtonIcon}" >
                             <Image  Source="Resources/mute.png"  Stretch="Uniform" Initialized="Mulai" />
+                        </local:ImageChooseButton>
+                    </WrapPanel>
+                </Grid>
+                <Grid x:Name="Contributor"
+                      Grid.Column="0"
+                      Grid.Row="5">
+                    <WrapPanel Style="{StaticResource RightButtonPanelStyle}"
+                       Margin="50,60,0,0">
+                        <local:ImageChooseButton Click="OnContibute" Style="{StaticResource ButtonIcon2}" >
+                            <Image  Source="Resources/contributor.png"  Stretch="Uniform" Initialized="Mulai" />
                         </local:ImageChooseButton>
                     </WrapPanel>
                 </Grid>
